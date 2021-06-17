@@ -3,4 +3,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"./../images/Rectangle1.jpg":[["Rectangle1.c7fb763f.jpg","UWss"],"UWss"],"./../images/search.svg":[["search.2ec2ebc5.svg","TnGF"],"TnGF"]}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");
 },{"./sass/main.scss":"clu1"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-02/src.3da65010.js.map
+//# sourceMappingURL=/project-02/src.b006e013.js.map
