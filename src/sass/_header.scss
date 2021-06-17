@@ -60,18 +60,54 @@
   }
 
   &-input {
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
+    // text-align: center;
     width: 336px;
     height: 20px;
 
     border-top-color: transparent;
     border-left-color: transparent;
     border-right-color: transparent;
+    border-bottom: 0.5px solid #ffffff;
 
     background-color: transparent;
 
     outline: none;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    color: #ffffff;
+    background: url(../images/search.svg) no-repeat 3px 1px;
+    background-position: right;
   }
+
+  // &-input::before {
+
+  // }
+
+  // &-input-container {
+  //   position: relative;
+  // }
+
+  // &-input-icon {
+  //   width: 12px;
+  //   height: 12px;
+  //   // position: absolute;
+  //   // top: 0px;
+  //   // right: 0px;
+  // }
+}
+
+::placeholder {
+  font-family: Roboto;
+
+  font-size: 14px;
+  line-height: 16px;
+  // display: flex;
+  // align-items: center;
+
+  color: #ffffff;
 }
