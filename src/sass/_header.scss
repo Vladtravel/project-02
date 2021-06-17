@@ -19,15 +19,7 @@
 
     margin-left: auto;
     margin-top: 58px;
-  }
-
-  &-input {
-    margin-top: 31px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 230px;
-    height: 20px;
+    margin-bottom: 27px;
   }
 
   &-button {
@@ -41,5 +33,13 @@
     background-color: transparent;
     border-color: transparent;
     color: #ffffff;
+  }
+
+  &-input {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 230px;
+    height: 20px;
   }
 }
