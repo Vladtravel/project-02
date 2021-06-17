@@ -5,11 +5,37 @@
 
   &-position {
     display: flex;
+    align-items: flex-end;
+    // align-self: center;
+    // margin-top: 58px;
+    margin-bottom: 27px;
   }
 
   &-logo {
     display: flex;
-    margin-top: 48px;
+  }
+
+  &-logo-img {
+    width: 24px;
+    height: 24px;
+
+    margin-top: 46px;
+    margin-right: 10px;
+    // margin-bottom: auto;
+  }
+
+  &-logo-title {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 41px;
+
+    color: #ffffff;
   }
 
   &-nav {
@@ -18,8 +44,6 @@
     text-align: center;
 
     margin-left: auto;
-    margin-top: 58px;
-    margin-bottom: 27px;
   }
 
   &-button {
@@ -39,7 +63,15 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    width: 230px;
+    width: 336px;
     height: 20px;
+
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+
+    background-color: transparent;
+
+    outline: none;
   }
 }
