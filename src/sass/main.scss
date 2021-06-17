@@ -4,4 +4,11 @@
  */
 
 // Стили для файла с примером HTML-фрагмента
-@import './example';
+
+@import './header.scss';
+@import './films-gallery.scss';
+@import './films-pages.scss';
+@import './footer.scss';
+@import './container.scss';
+@import './base-style.scss';
+@import './modal.scss';
