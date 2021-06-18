@@ -1,17 +1,30 @@
-<header class="header">
+<header class="header img-home" data-header>
     <div class="container">
   <div class="header-position">
         <a href="#" class="header-logo">
-            <img class="header-logo-img" src="./images/film.png" alt="logo">
+            <img class="header-logo-img" src="./images/header/film.png" alt="logo">
             <span class="header-logo-title">Filmoteka</span>        
         </a>
         <ul class="header-nav">
-            <button class="header-button" type="button" >Home</button>
-            <button class="header-button" type="button">my library</button>            
+            <li class="header-nav-el">
+                <button class="header-button is-active" data-home type="button">Home</button>
+            </li>
+            <li class="header-nav-el">
+                <button class="header-button is-deactive" data-library type="button">my library</button>
+            </li>                       
         </ul>
   </div>
- <div class="header-input-container">
-    <input class="header-input" type="text" placeholder="Поиск фильмов">   
- </div>        
+ 
+    <input class="header-input " data-input type="text" placeholder="Поиск фильмов">   
+
+    <ul class="header-library is-hidden" data-button-library>
+        <li class="header-library-el">
+            <button class="header-library-button" data-watched type="button">Watched</button>
+        </li>
+        <li class="header-library-el">
+            <button class="header-library-button" data-queue type="button">queue </button>
+        </li>
+    </ul>
+        
     </div>
 </header>
