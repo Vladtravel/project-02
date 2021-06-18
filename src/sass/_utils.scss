@@ -1,0 +1,33 @@
+.is-active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #ff6b08;
+}
+.is-deactive::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: transparent;
+}
+
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.img-home {
+  background-image: url(../images/header/home1024.jpg);
+}
+
+.img-library {
+  background-image: url(../images/header/lib1024.jpg);
+}
