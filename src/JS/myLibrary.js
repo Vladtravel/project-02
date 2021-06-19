@@ -15,31 +15,40 @@ function testFetch(id) {
     .then(response => response.json())
 }
 
+// 3. Сохранение просмотренного в localStorage
+
 const watched = []
-const queue = []
 
-function addToWatched() {
-
-}
-
-function addToQueue() {
-  
-}
-
-testWatchedID.forEach((id) => {
-  testFetch(id)
+function addToWatched(movie) {
+  testFetch(movie)
     .then(data => watched.push(data))
     .then(() => {
       console.log(watched)
       localStorage.setItem('watched', JSON.stringify(watched))
       console.log(localStorage.getItem('watched'))
     })
-    
+}
+
+const queue = []
+
+function addToQueue(movie) {
+  testFetch(movie)
+    .then(data => queue.push(data))
+    .then(() => {
+      console.log(queue)
+      localStorage.setItem('queue', JSON.stringify(queue))
+      console.log(localStorage.getItem('queue'))
+    })
+}
+
+testWatchedID.forEach((value) => {
+  addToWatched(value)
 })
 
-console.log(watched)
+testQueueID.forEach((value) => {
+  addToQueue(value)
+})
 
-localStorage.setItem('watched', JSON.stringify(watched))
 
-console.log(localStorage.getItem('watched'))
+// 4. Вывод готовой подборки
 
