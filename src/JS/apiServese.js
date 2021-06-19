@@ -9,7 +9,7 @@ export default class VideoApiService {
 
   async fetchVideo() {
     const responseUrl = await fetch(
-        `${BASE_URL}/search/movie?api_key=${KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`
+        `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`
     );
 
     const { hits: video } = await responseUrl.json();
