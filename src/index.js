@@ -5,6 +5,8 @@ import './JS/modal.js';
 
 import './JS/apiServicePop.js';
 
+import './JS/pagination.js';
+
 
 
 
