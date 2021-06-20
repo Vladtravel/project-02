@@ -1,4 +1,3 @@
-
 const cardElem = document.querySelector('.js-card');
 const paginationElement = document.getElementById('pagination');
 const arrowLeft = document.querySelector('.arrow_left');
@@ -58,14 +57,22 @@ export function createPagination(totalPages, listItems, callback, searchQuery) {
       // add ...
       if (
         totalPages >= 6 &&
-        i == 1 && currentPage !== 1 && currentPage !== 2 && currentPage !== 3
+        i == 1 &&
+        currentPage !== 1 &&
+        currentPage !== 2 &&
+        currentPage !== 3
       ) {
         const threeDotsEl = addThreeDotsBlock();
         wrapper.insertBefore(threeDotsEl, wrapper[wrapper.length - 2]);
       }
 
       if (
-        pageCount >= 7 && i == pageCount - 1 && currentPage !== pageCount && currentPage !== pageCount - 2 && currentPage !== pageCount - 1) {
+        pageCount >= 7 &&
+        i == pageCount - 1 &&
+        currentPage !== pageCount &&
+        currentPage !== pageCount - 2 &&
+        currentPage !== pageCount - 1
+      ) {
         const threeDotsEl = addThreeDotsBlock();
         wrapper.insertBefore(threeDotsEl, wrapper[1]);
       }
@@ -119,7 +126,7 @@ export function createPagination(totalPages, listItems, callback, searchQuery) {
   // Arrow right
   function onArrowRightClick() {
     if (currentPage < totalPages) {
-      placeholder.spinner.show();
+      // placeholder.spinner.show();
       window.scrollTo({ top: 0, behavior: 'smooth' });
       currentPage++;
       setupPagination(listItems, paginationElement, rows);
@@ -135,6 +142,36 @@ export function createPagination(totalPages, listItems, callback, searchQuery) {
 
   hideExtremeButtons(totalPages);
   disableArrowBtn(totalPages);
+}
+
+function hideExtremeButtons(totalPages) {
+  try {
+    if (/Android|webOS|iPhone|iPad|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      // код для мобильных устройств
+      const allPaginationBtns = document.querySelectorAll('#pagination button');
+      if (currentPage > 3) {
+        allPaginationBtns[0].classList.add('hide');
+      } else {
+        allPaginationBtns[0].classList.remove('hide');
+      }
+
+      if (currentPage < totalPages - 3) {
+        allPaginationBtns[allPaginationBtns.length - 1].classList.add('hide');
+      } else {
+        allPaginationBtns[allPaginationBtns.length - 1].classList.remove('hide');
+      }
+    }
+  } catch (error) {}
+}
+
+paginationElement.addEventListener('click', disableArrowBtnAfterPageClick);
+
+function disableArrowBtnAfterPageClick(e) {
+  if (e.target.tagName != 'BUTTON') {
+    return;
+  } else {
+    disableArrowBtn(pageCount);
+  }
 }
 
 function disableArrowBtn(totalPages) {
