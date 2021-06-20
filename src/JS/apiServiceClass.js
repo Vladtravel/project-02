@@ -12,8 +12,8 @@ export default class NewApiServiceTrend {
       .then(response => {
         return response.json();
       })
-      .then(({ results }) => {
-        return results;
+      .then(data => {
+        return data.results;
       });
   }
 
@@ -21,12 +21,12 @@ export default class NewApiServiceTrend {
     const url = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
     return fetch(url)
       .then(response => response.json())
-      .then(data => {
-        return data.genres;
+      .then(({ genres }) => {
+        return genres;
       });
   }
 
-  insertGenresToMovieObj() {
+  insertGenresToFilm() {
     return this.fetchFilms().then(data => {
       return this.fetchGenres().then(genresList => {
         return data.map(movie => ({
@@ -42,5 +42,29 @@ export default class NewApiServiceTrend {
         }));
       });
     });
+  }
+
+  incrementPage() {
+    this.page += 1;
+  }
+
+  decrementPage() {
+    this.page -= 1;
+  }
+
+  resetPage() {
+    this.page = 1;
+  }
+
+  fetchFilmsPages() {
+    const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}&${this.page}`;
+    return fetch(url)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        return data;
+      });
   }
 }
