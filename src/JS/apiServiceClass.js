@@ -7,7 +7,7 @@ export default class NewApiServiceTrend {
   }
 
   fetchFilms() {
-    const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}&${this.page}`;
+    const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}&page=${this.page}`;
     return fetch(url)
       .then(response => {
         return response.json();
@@ -57,14 +57,17 @@ export default class NewApiServiceTrend {
   }
 
   fetchFilmsPages() {
-    const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}&${this.page}`;
-    return fetch(url)
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        console.log(data);
-        return data;
-      });
+    const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}&page=${this.page}`;
+    return fetch(url).then(response => {
+      return response.json();
+    });
+  }
+
+  get pageNum() {
+    return this.page;
+  }
+
+  set pageNum(newPage) {
+    this.page = newPage;
   }
 }
