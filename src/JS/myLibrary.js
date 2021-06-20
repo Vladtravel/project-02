@@ -3,15 +3,13 @@
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '612ad9e57f61526bfd55d457eca2466c';
 
-const testWatchedID = [508943, 84958, 602063, 581726]
+const testWatchedID = [508943, 602063, 581726]
 const testQueueID = [423108, 88052]
 
 import filmsTpl from '../templates/films-gallery-markup.hbs';
 import getRefs from '../JS/getRefs.js'
 
 const libraryRefs = getRefs()
-
-
 
 const galleryList = document.querySelector('.gallery-list')
 
@@ -30,9 +28,7 @@ function addToWatched(movie) {
   testFetch(movie)
     .then(data => watched.push(data))
     .then(() => {
-      console.log(watched)
       localStorage.setItem('watched', JSON.stringify(watched))
-      console.log(localStorage.getItem('watched'))
     })
 }
 
@@ -42,9 +38,7 @@ function addToQueue(movie) {
   testFetch(movie)
     .then(data => queue.push(data))
     .then(() => {
-      console.log(queue)
       localStorage.setItem('queue', JSON.stringify(queue))
-      console.log(localStorage.getItem('queue'))
     })
 }
 
@@ -58,10 +52,13 @@ testQueueID.forEach((value) => {
 
 // 4. Вывод готовой подборки
 
-libraryRefs.myLibraryBtn.addEventListener('click', () => {
-  // galleryList.innerHTML = filmsTpl(JSON.parse(localStorage.getItem('watched')))
-  galleryList.insertAdjacentHTML('beforeend', filmsTpl(JSON.parse(localStorage.getItem('watched'))))
-  console.log(JSON.parse(localStorage.getItem('watched')))
-  console.log('Test')
+libraryRefs.btnWatched.addEventListener('click', () => {
+  galleryList.innerHTML = filmsTpl(JSON.parse(localStorage.getItem('watched')))
+  // galleryList.insertAdjacentHTML('beforeend', filmsTpl(JSON.parse(localStorage.getItem('watched'))))
+})
+
+libraryRefs.btnQueue.addEventListener('click', () => {
+  galleryList.innerHTML = filmsTpl(JSON.parse(localStorage.getItem('queue')))
+  // galleryList.insertAdjacentHTML('beforeend', filmsTpl(JSON.parse(localStorage.getItem('watched'))))
 })
 
