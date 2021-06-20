@@ -56,11 +56,10 @@ export function fetchDataOfPopularFilms() {
 }
 
 function displayList(wrapper, page) {
-  console.log(wrapper);
   wrapper.innerHTML = '';
-  fetchPopularFilmsByPage(page).then(renderFilmsCard);
+  fetchPopularFilmsByPage(page).then(renderPopFilms);
 }
 
-function renderFilmsCard(results) {
-  wrapper.innerHTML = filmsMarkup(results);
-}
+// function renderFilmsCard(results) {
+//   galleryList.innerHTML = filmsMarkup(results);
+// }

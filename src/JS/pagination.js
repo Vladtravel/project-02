@@ -126,7 +126,7 @@ export function createPagination(totalPages, listItems, callback, searchQuery) {
   // Arrow right
   function onArrowRightClick() {
     if (currentPage < totalPages) {
-      placeholder.spinner.show();
+      // placeholder.spinner.show();
       window.scrollTo({ top: 0, behavior: 'smooth' });
       currentPage++;
       setupPagination(listItems, paginationElement, rows);
