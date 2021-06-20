@@ -13,6 +13,23 @@
   }
 })();
 
+
+function fetchFilmsCard() {
+  fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`)
+    .then(response => {
+      return response.json();
+    })
+    .then(film => {
+      filmCardMarkup(film);
+    });
+}
+
+// https://developers.themoviedb.org/3/movies/get-movie-details
+
+
+
+
+
 // modalBtn = document.querySelector('.modal-btn')
 
 
