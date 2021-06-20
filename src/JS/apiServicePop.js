@@ -16,5 +16,24 @@ function filmsMarkup(results) {
 }
 
 function render() {
-  newApiServiceTrend.insertGenresToMovieObj().then(filmsMarkup);
+  clearGalleryContainer();
+  newApiServiceTrend.insertGenresToFilm().then(results => {
+    filmsMarkup(results);
+  });
+}
+
+const decrementBtn = document.querySelector('.js-decrementBtn');
+const incrementBtn = document.querySelector('.js-incrementBtn');
+
+incrementBtn.addEventListener('click', onIncrementBtnClick);
+
+function onIncrementBtnClick(e) {
+  e.preventDefault();
+  newApiServiceTrend.incrementPage();
+  clearGalleryContainer();
+  render();
+}
+
+function clearGalleryContainer() {
+  galleryList.innerHTML = '';
 }
