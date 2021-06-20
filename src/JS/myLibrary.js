@@ -4,9 +4,16 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '612ad9e57f61526bfd55d457eca2466c';
 
 const testWatchedID = [508943, 84958, 602063, 581726]
-const testQueueID = [581644, 96677]
+const testQueueID = [423108, 88052]
 
 import filmsTpl from '../templates/films-gallery-markup.hbs';
+import getRefs from '../JS/getRefs.js'
+
+const libraryRefs = getRefs()
+
+
+
+const galleryList = document.querySelector('.gallery-list')
 
 // 2. Тестовый фетч
 
@@ -49,6 +56,12 @@ testQueueID.forEach((value) => {
   addToQueue(value)
 })
 
-
 // 4. Вывод готовой подборки
+
+libraryRefs.myLibraryBtn.addEventListener('click', () => {
+  // galleryList.innerHTML = filmsTpl(JSON.parse(localStorage.getItem('watched')))
+  galleryList.insertAdjacentHTML('beforeend', filmsTpl(JSON.parse(localStorage.getItem('watched'))))
+  console.log(JSON.parse(localStorage.getItem('watched')))
+  console.log('Test')
+})
 
