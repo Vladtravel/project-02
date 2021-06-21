@@ -8,9 +8,14 @@ export default class NewApiServiceTrend {
 
   fetchFilms() {
     const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}&page=${this.page}`;
+    
+
     return fetch(url)
       .then(response => {
-        return response.json();
+        const respVar = response.json();
+        // console.log(respVar)
+        return respVar;
+        
       })
       .then(data => {
         return data.results;
