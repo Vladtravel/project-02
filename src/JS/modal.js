@@ -26,14 +26,17 @@ console.log(openOneFilm)
 
 openOneFilm.addEventListener('click', openModal);
 
-function fetchFilmsCardId(movie_id){
-  const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}`
+function fetchFilmsCardId(movie_id) {
+  const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${apiKey}`;
   return fetch(url)
-  .then(response => response.json)
-  .then(data => console.log(data))
+    .then(response => response.json())
+    .then(data => ({
+      ...data,
+      popularity: data.popularity.toFixed(1),
+    }));
   // Ошибка тут! Нужно получить доступ к id того фильма на который кликаешь
-      
 }
+
 
 function openModal(e) {
   e.preventDefault();
