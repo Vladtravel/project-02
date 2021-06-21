@@ -58,9 +58,6 @@ function clearImgHeader() {
 
 
 refs.input.addEventListener('input', onSearch)
-// refs.input.addEventListener('input',  _debounce(e => {
-//     onSearch(e);
-//   }, 500),);
 
 function onSearch(e) {
   e.preventDefault();
@@ -84,6 +81,6 @@ function onSearch(e) {
   refs.gallery.innerHTML = ' ';
 }
  
-function onFetchError(){
-alert ('Введите коректные данные');
-}
+// function onFetchError(){
+// alert ('Введите коректные данные');
+// }
