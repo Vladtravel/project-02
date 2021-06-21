@@ -1,5 +1,5 @@
 import VideoApiService from './apiServese';
-import cardImeges from '../templates/templates.hbs';
+import cardImeges from './templates/templates.hbs';
 
 const galleryList = document.querySelector('.gallery-list');
 const formInput = document.querySelector('.header-form');
@@ -13,23 +13,23 @@ function searchingFilm(e) {
     const form = e.currentTarget;
     const input = form.elements.query;
   
-    // clearListItems();
+    clearListItems();
   
     // filmApiService.resetPage();
     filmApiService.searchQuerry = input.value;
   
     filmApiService.fetchVideo().then(hits => {
         buildListItemsTemplate(hits);
-      console.log()
-    });
-    input.value = '';
-
-  }
-  
-  
-  function buildListItemsTemplate(items) {
-    return galleryList.insertAdjacentHTML('beforeend', filmsTpl(films));
-  }
+      });
+      input.value = '';
+      
+    }
+    
+    
+    function buildListItemsTemplate(items) {
+      return galleryList.insertAdjacentHTML('beforeend', cardImeges(films));
+    }
+    console.log(buildListItemsTemplate);
 
 
 
