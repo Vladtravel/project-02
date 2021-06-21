@@ -1,4 +1,4 @@
-import VideoApiService from './apiService';
+import VideoApiService from './apiServiceSearch';
 import searchFilm from '../templates/films-gallery-markup.hbs';
 import { createPagination } from './pagination';
 
