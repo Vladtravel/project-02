@@ -1,11 +1,11 @@
-    {{#each this.results}}
+    {{#each this}}
     <li class="gallery-item">
         <div>
-            <img src="https://image.tmdb.org/t/p/original{{poster_path}}" alt="" class="film-img" width="274" height="440">
+            <img src="https://image.tmdb.org/t/p/original{{poster_path}}" alt="{{name}} {{title}}" class="film-img" width="274" height="440">
         </div>
         <div>
-            <p>{{name}} {{title}}</p>
-            <p>{{genre_ids}} | {{first_air_date}} {{release_date}}</p>
+            <p class="film-title">{{name}} {{title}}</p>
+            <p class="film-text"><span>{{#each genres}} {{name}}<span class="comma">,</span> {{/each}}</span> | <span>{{first_air_date}} {{release_date}}</span></p>
         </div>
     </li>
     {{/each}}
