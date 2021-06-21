@@ -26,6 +26,7 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
+    "pnotify": "^5.2.0"
     "promised-handlebars": "^2.0.1"
   }
 }
