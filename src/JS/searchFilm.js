@@ -1,35 +1,76 @@
-import VideoApiService from './apiServese';
-import cardImeges from './templates/templates.hbs';
+import VideoApiService from './apiService';
+import searchFilm from '../templates/films-gallery-markup.hbs';
+import { createPagination } from './pagination';
 
-const galleryList = document.querySelector('.gallery-list');
-const formInput = document.querySelector('.header-form');
 const filmApiService = new VideoApiService();
+const formInput = document.querySelector('#search-form');
+const galleryList = document.querySelector('.gallery-list');
 
 formInput.addEventListener('submit', searchingFilm);
 
 function searchingFilm(e) {
-    e.preventDefault();
+  filmApiService.page = 1;
+
+  e.preventDefault();
   
-    const form = e.currentTarget;
-    const input = form.elements.query;
-  
-    clearListItems();
-  
-    // filmApiService.resetPage();
-    filmApiService.searchQuerry = input.value;
-  
-    filmApiService.fetchVideo().then(hits => {
-        buildListItemsTemplate(hits);
-      });
-      input.value = '';
-      
-    }
-    
-    
-    function buildListItemsTemplate(items) {
-      return galleryList.insertAdjacentHTML('beforeend', cardImeges(films));
-    }
-    console.log(buildListItemsTemplate);
+  const form = e.currentTarget;
+  const input = form.elements.query;
+  filmApiService.query = input.value;
+  renderSearchFilms(filmApiService.query);
+}
+
+// renders search list
+function renderSearchFilms (searchQuery) {
+  filmApiService.query = searchQuery;
+  filmApiService
+    .insertGenresToSearch()
+    .then(renderFilmsCard)
+    .catch(err => {
+      console.log('error in function render');
+    });
+}
+
+// render markup
+function renderFilmsCard(articles) {
+  galleryList.innerHTML = searchFilm(articles);
+}
+
+// renders movies by appropriate page & search query
+// function displaySearchListByPage(wrapper, page, searchQuery) {
+//   wrapper.innerHTML = '';
+//   fetchFilmsPages(page, searchQuery)
+//     .then(renderFilmsCard)
+//     .catch(err => {
+//       console.log('error in function displaySearchListByPage');
+//       listElement.innerHTML = `<img class="catch-error-pagination" src="${errorUrl}" />`;
+//     });
+// }
 
 
+// Pagination-----------------------------------------
 
+function fetchSearchFilmsByPage(page, searchQuery) {
+  filmApiService.pageNum = page;
+  filmApiService.query = searchQuery;
+  return filmApiService.insertGenresToSearch();
+}
+
+export function fetchDataOfSearchFilms() {
+  filmApiService.fetchFilmsPages().then(results => {
+    createPagination(results.total_pages, results.results, displayList);
+  });
+}
+
+function displayList(wrapper, page) {
+  wrapper.innerHTML = '';
+  fetchSearchFilmsByPage(page, searchQuery).then(renderSearchFilms);
+}
+
+
+// ================
+// fetches search queries by appropriate page & search query
+// function fetchSearchFilmsByPage(page, searchQuery) {
+//   filmApiService.pageNum = page;
+//   filmApiService.query = searchQuery;
+//   return filmApiService.insertGenresToSearch();
+// }
