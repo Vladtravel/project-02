@@ -1,0 +1,11 @@
+{{#each this}}
+<li class="gallery-item">
+    <div>
+        <img src="https://image.tmdb.org/t/p/original{{logo_path}}" alt="" class="film-img" width="274" height="440">
+    </div>
+    <div>
+        <p>{{name}} {{title}}</p>
+        <p>{{genre_ids}} | {{first_air_date}} {{release_date}}</p>
+    </div>
+</li>
+{{/each}}
