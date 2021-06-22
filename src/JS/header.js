@@ -1,4 +1,16 @@
+// import { alert, defaultModules, error } from '@pnotify/core';
+// import * as PNotifyMobile from '@pnotify/mobile';
+
 import getRefs from './getRefs';
+import API from './apiServiсe';
+import filmsTpl from '../templates/search.hbs';
+// import debounce from 'lodash.debounce';
+// import '@pnotify/core/dist/BrightTheme.css';
+// import '@pnotify/core/dist/PNotify.css';
+
+
+// defaultModules.set(PNotifyMobile, {});
+
 
 const refs = getRefs();
 
@@ -23,7 +35,7 @@ function clickLibrary() {
     refs.btnLibrary.classList.add('is-active');
     refs.btnHome.classList.add('is-deactive');
     refs.header.classList.add('img-library')
-    
+
 }
 
 function clearVisuallyHidden() {
@@ -31,13 +43,44 @@ function clearVisuallyHidden() {
     refs.myLibraryBtn.classList.remove('is-hidden')
 }
 function clearActiveStatus() {
-   refs.btnLibrary.classList.remove('is-deactive');
+    refs.btnLibrary.classList.remove('is-deactive');
     refs.btnLibrary.classList.remove('is-active');
     refs.btnHome.classList.remove('is-active');
-    refs.btnHome.classList.remove('is-deactive') 
+    refs.btnHome.classList.remove('is-deactive')
 }
 
 function clearImgHeader() {
     refs.header.classList.remove('img-home')
     refs.header.classList.remove('img-library')
 }
+
+// Поиск по ключевому слову
+
+
+refs.input.addEventListener('input', onSearch)
+
+function onSearch(e) {
+  e.preventDefault();
+  onClear(); 
+  const searchQuery = e.target.value ;
+  
+  API.SearchVideo(searchQuery)
+  .then(data => {     
+      console.log(data)         
+     renderFilmsList(data)    
+  })
+  .catch(onFetchError);   
+}    
+      
+ function renderFilmsList(list) {
+                const markUp = filmsTpl(list)
+                refs.gallery.innerHTML = markUp;
+            }
+
+ function onClear () {
+  refs.gallery.innerHTML = ' ';
+}
+ 
+// function onFetchError(){
+// alert ('Введите коректные данные');
+// }

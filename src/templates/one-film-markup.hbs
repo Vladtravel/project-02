@@ -1,0 +1,77 @@
+<div class="modal" data-action="{{id}}">
+        <button class="modal-close" data-modal-close>Закрыть</button>
+
+        <div class="one-film-markup">
+            <div class="poster">
+                <img class="image" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}">
+            </div>
+
+            <div>
+                <h2 class="movie-title">{{title}}</h2>
+    
+                <div class="movie-parameters">
+                    <div class="vote">
+                        <p>Vote</p>
+                        <p>
+                            <span class="vote-average">{{vote_average}}</span>
+                            /
+                            <span class="vote-count">{{vote_count}}</span>
+                        </p>
+                    </div>
+                    <div class="popularity">
+                        <p>Popularity</p>
+                        <p>{{popularity}}</p>
+                    </div>
+                    <div class="original-title">
+                        <p>Original Title</p>
+                        <p>{{original_title}}</p>
+                    </div>
+                    <div class="genre">
+                        <p>Genre</p>
+                        <p>(value)</p>
+                    </div>
+                </div>
+                <!-- <div class="movie-parameters">
+                    <ul class="parameters">
+                        <li>Vote</li>
+                        <li>Popularity</li>
+                        <li>Original Title</li>
+                        <li>Genre</li>
+                    </ul>
+    
+                    <ul class="value">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div> -->
+                
+    
+                <p>About</p>
+                <p>
+                    {{overview}}
+                </p>
+    
+                <div class="modal-btns-add">
+                    <ul class="btns-in-modal">
+                        <li class="btn-in-modal">
+                            <label class="btn-in-modal-label ">
+                                <input type="checkbox" value="Watched" class="btn-in-modal-input" />
+                                <span class="btn-watched" id="js-WatchedButton">Watched</span>
+                            </label>
+                        </li>
+                        <li class="btn-in-modal">
+                            <label class="btn-in-modal-label ">
+                                <input type="checkbox" value="Queue" class="btn-in-modal-input" />
+                                <span class="btn-queue" id="js-QueueButton">Queue</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
