@@ -7,10 +7,6 @@ export default function getRefs() {
     input: document.querySelector('[data-input]'),
     myLibraryBtn: document.querySelector('[data-button-library]'),
     header: document.querySelector('[data-header]'),
-
     logo: document.querySelector('.header-logo'),
   };
-
-    gallery: document.querySelector('.gallery-list'),
-
 }
