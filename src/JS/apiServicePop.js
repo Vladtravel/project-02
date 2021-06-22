@@ -1,20 +1,39 @@
 // const API_KEY = '612ad9e57f61526bfd55d457eca2466c';
 // const BASE_URL = 'https://api.themoviedb.org/3';
 
+import getRefs from './getRefs';
 import NewApiServiceTrend from './apiServiceClass';
 import { createPagination } from './pagination';
 
 import filmsTpl from '../templates/films-gallery-markup.hbs';
+import plugTpl from '../templates/plug.hbs';
 
 const galleryList = document.querySelector('.gallery-list');
 
 const newApiServiceTrend = new NewApiServiceTrend();
+
+let refs = getRefs();
+
+refs.btnHome.addEventListener('click', onBtnHomeAndLogoClick);
+refs.logo.addEventListener('click', onBtnHomeAndLogoClick);
+
+function onBtnHomeAndLogoClick() {
+  clearGalleryContainer();
+  newApiServiceTrend.page = 1;
+  renderPopFilms();
+  fetchDataOfPopularFilms();
+}
 
 renderPopFilms();
 fetchDataOfPopularFilms();
 
 function filmsMarkup(results) {
   galleryList.insertAdjacentHTML('beforeend', filmsTpl(results));
+  plugMarkup();
+}
+
+function plugMarkup() {
+  galleryList.insertAdjacentHTML('beforeend', plugTpl());
 }
 
 export function renderPopFilms() {
@@ -23,6 +42,9 @@ export function renderPopFilms() {
   });
 }
 
+function clearGalleryContainer() {
+  galleryList.innerHTML = '';
+}
 // const decrementBtn = document.querySelector('.js-decrementBtn');
 // const incrementBtn = document.querySelector('.js-incrementBtn');
 
@@ -37,10 +59,6 @@ export function renderPopFilms() {
 
 //   renderPopFilms();
 // }
-
-function clearGalleryContainer() {
-  galleryList.innerHTML = '';
-}
 
 // Pagination-----------------------------------------
 

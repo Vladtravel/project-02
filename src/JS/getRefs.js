@@ -1,5 +1,5 @@
-export default function getRefs(){
-return {
+export default function getRefs() {
+  return {
     btnHome: document.querySelector('[data-home]'),
     btnLibrary: document.querySelector('[data-library]'),
     btnWatched: document.querySelector('[data-watched]'),
@@ -7,8 +7,6 @@ return {
     input: document.querySelector('[data-input]'),
     myLibraryBtn: document.querySelector('[data-button-library]'),
     header: document.querySelector('[data-header]'),
-    gallery: document.querySelector('.gallery-list'),
     logo: document.querySelector('.header-logo'),
   };
-    
 }
