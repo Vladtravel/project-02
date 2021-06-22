@@ -2,6 +2,7 @@ import filmMarkup from '../templates/one-film-markup.hbs'
 // import * as basicLightbox from 'basiclightbox';
 // import 'basiclightbox/dist/basicLightbox.min.css';
 
+
 import galleryHbs from '../templates/films-gallery-markup.hbs';
 import NewApiServiceTrend from './apiServiceClass.js';
  
@@ -22,10 +23,10 @@ import NewApiServiceTrend from './apiServiceClass.js';
   } 
 })(); 
 
- 
-
-
 // const galleryMovies = document.querySelector('.gallery-list')
+
+// galleryMovies.addEventListener('click', openModalBtn)
+
 // const oneMovie = document.querySelector('galleryMovies.gallery-item')
  
 // galleryMovies.addEventListener('click', openModal); 
