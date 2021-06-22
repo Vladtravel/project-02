@@ -14,8 +14,16 @@
             </li>                       
         </ul>
   </div>
- 
-    <input class="header-input " data-input type="text" placeholder="Поиск фильмов">   
+ <form class="header-form" id="search-form">
+    <input 
+        class="header-input" 
+        data-input 
+        type="text"
+        name="query"
+        autocomplete="off"
+        placeholder="Поиск фильмов"
+    />
+ </form>
 
     <ul class="header-library is-hidden" data-button-library>
         <li class="header-library-el">
