@@ -1,6 +1,6 @@
-// import filmMarkup from '../templates/one-film-markup.hbs'
-// import * as basicLightbox from 'basiclightbox';
-// import 'basiclightbox/dist/basicLightbox.min.css';
+import filmMarkup from '../templates/one-film-markup.hbs'
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 
 
 // import testFetch from './myLibrary.js'
@@ -21,63 +21,60 @@
 
 
 
-// const openOneFilm = document.querySelector('.gallery-list');
+const openOneFilm = document.querySelector('.gallery-list');
 
-// openOneFilm.addEventListener('click', openModal);
+openOneFilm.addEventListener('click', openModal);
 
+const API_KEY = 'b65045320802bba8dd2152de82b219b4'
 
+function fetchFilmsCardId(id) {
+  const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
+  return fetch(url)
+    .then(response => response.json())
+    .then(console.log)
+    .then(data => (console.log(data)))
+  // Ошибка тут! Нужно получить доступ к id того фильма на который кликаешь
+}
 
+function openModal(e) {
+  e.preventDefault();
 
-// function fetchFilmsCardId(id) {
-//   const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
-//   return fetch(url)
-//     .then(response => response.json())
-//     .then(console.log)
-//     // .then(data => (console.log(data)))
-//   // Ошибка тут! Нужно получить доступ к id того фильма на который кликаешь
-// }
+  fetchFilmsCardId(e.target.dataset.id)
+    .then(data => {
+      if (e.target.nodeName !== 'IMG') return;
 
+      const markup = filmMarkup(data);
+      const modal = basicLightbox.create(markup);
 
+      modal.show();
 
-// function openModal(e) {
-//   e.preventDefault();
+      const closeBtn = document.querySelector('.modal-close');
+      closeBtn.addEventListener('click', closeModal);
 
-//   fetchFilmsCardId(e.target.dataset.id)
-//     .then(data => {
-//       if (e.target.nodeName !== 'IMG') return;
+      window.addEventListener('keydown', closeModalHandler);
 
-//       const markup = filmMarkup(data);
-//       const modal = basicLightbox.create(markup);
+      function closeModalHandler(e) {
+        if (e.code === 'Escape') {
+          modal.close();
+          window.removeEventListener('keydown', closeModalHandler);
+        }
+      }
 
-//       modal.show();
-
-//       const closeBtn = document.querySelector('.modal-close');
-//       closeBtn.addEventListener('click', closeModal);
-
-//       window.addEventListener('keydown', closeModalHandler);
-
-//       function closeModalHandler(e) {
-//         if (e.code === 'Escape') {
-//           modal.close();
-//           window.removeEventListener('keydown', closeModalHandler);
-//         }
-//       }
-
-//       function closeModal(e) {
-//         modal.close();
-//         window.removeEventListener('keydown', closeModalHandler);
-//       }
+      function closeModal(e) {
+        modal.close();
+        window.removeEventListener('keydown', closeModalHandler);
+      }
 
 //       //new Function
-//       // testFetch()
-//       // initStorageBtns();
-//     })
-//     .then(data => console.log(data))
-//     // .then(data => {})
-//     // .catch(error => {
-//     //   console.log('oops!');
-//     // });
-// }
+    //   testFetch()
+      initStorageBtns();
+    })
+    .then(data => console.log(data))
+    .then(data => {})
+    .catch(error => {
+      console.log('oops!');
+    });
+}
 
 
 
