@@ -1,80 +1,128 @@
-import filmMarkup from '../templates/one-film-markup.hbs' 
-import * as basicLightbox from 'basiclightbox'; 
-import 'basiclightbox/dist/basicLightbox.min.css'; 
+import filmMarkup from '../templates/one-film-markup.hbs'
+// import * as basicLightbox from 'basiclightbox';
+// import 'basiclightbox/dist/basicLightbox.min.css';
+
+
+import galleryHbs from '../templates/films-gallery-markup.hbs';
+import NewApiServiceTrend from './apiServiceClass.js';
  
  
 // import testFetch from './myLibrary.js' 
-// (() => { 
-//   const refs = { 
-//     openModalBtn: document.querySelector('[data-modal-open]'), 
-//     closeModalBtn: document.querySelector('[data-modal-close]'), 
-//     backdrop: document.querySelector('[data-backdrop]') 
-//   }; 
+(() => { 
+  const refs = { 
+    openModalBtn: document.querySelector('[data-modal-open]'), 
+    closeModalBtn: document.querySelector('[data-modal-close]'), 
+    backdrop: document.querySelector('[data-backdrop]') 
+  }; 
  
-//   refs.openModalBtn.addEventListener('click', toggleModal); 
-//   refs.closeModalBtn.addEventListener('click', toggleModal); 
+  refs.openModalBtn.addEventListener('click', toggleModal); 
+  refs.closeModalBtn.addEventListener('click', toggleModal); 
  
-//   function toggleModal() { 
-//     refs.backdrop.classList.toggle('is-hidden'); 
-//   } 
-// })(); 
+  function toggleModal() { 
+    refs.backdrop.classList.toggle('is-hidden'); 
+  } 
+})(); 
+
+// const galleryMovies = document.querySelector('.gallery-list')
+
+// galleryMovies.addEventListener('click', openModalBtn)
+
+// const oneMovie = document.querySelector('galleryMovies.gallery-item')
  
+// galleryMovies.addEventListener('click', openModal); 
+
+const API_KEY = '612ad9e57f61526bfd55d457eca2466c';
+const BASE_URL = 'https://api.themoviedb.org/3';
+
+// function fetchFilmsCardId() { 
+//   const url = `https://api.themoviedb.org/3/movie/{movie_id}?${API_KEY}&language=en-US`;
+//   return fetch(url) 
+//     .then(response => response.json()) 
+//     .then(console.log)
+//   Ошибка тут! Нужно получить доступ к id того фильма на который кликаешь 
+// } 
+
+// fetchFilmsCardId(e.target.dataset.id)
+
+// function fetchFilmsCardId() {
+//   const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}`;
+//   return fetch(url)
+//     .then(response => {
+//       return response.json();
+//     })
+//     .then(data => {
+//       return data.results;
+//     });
+// }
+
+// function openModal(e) { 
+//   e.preventDefault(); 
+
+//     fetchFilmsCardId(e.target.dataset.id)
+
+//     // if (e.target.nodeName !== 'IMG') return; 
  
+//     //   const markup = `<img src=${e.target.dataset.lightbox} alt="icon" />`; 
+//     //   const modal = basicLightbox.create(markup); 
  
-const openOneFilm = document.querySelector('.gallery-list'); 
+//       // modal.show(); 
+
+//       const closeBtn = document.querySelector('.modal-close'); 
+//       closeBtn.addEventListener('click', closeModal); 
+       
+//       window.addEventListener('keydown', closeModalHandler); 
+       
+//       function closeModalHandler(e) { 
+//         if (e.code === 'Escape') { 
+//           modal.close(); 
+//           window.removeEventListener('keydown', closeModalHandler); 
+//         } 
+//       } 
+       
+//       function closeModal(e) { 
+//         modal.close(); 
+//         window.removeEventListener('keydown', closeModalHandler); 
+//       }}
+
+
+  // fetchFilmsCardId(e.target.dataset.id)
+  // .then(console.log)
+//   fetchFilmsCardId(e.target.dataset.id) 
+//     .then(data => { 
+//       if (e.target.nodeName !== 'IMG') return; 
  
-openOneFilm.addEventListener('click', openModal); 
+//       const markup = filmMarkup(data); 
+//       const modal = basicLightbox.create(markup); 
  
-const API_KEY = 'b65045320802bba8dd2152de82b219b4' 
+//       modal.show(); 
  
-function fetchFilmsCardId(id) { 
-  const url = https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}; 
-  return fetch(url) 
-    .then(response => response.json()) 
-    .then(console.log) 
-    .then(data => (console.log(data))) 
-  // Ошибка тут! Нужно получить доступ к id того фильма на который кликаешь 
-} 
+//       const closeBtn = document.querySelector('.modal-close'); 
+//       closeBtn.addEventListener('click', closeModal); 
  
-function openModal(e) { 
-  e.preventDefault(); 
+//       window.addEventListener('keydown', closeModalHandler); 
  
-  fetchFilmsCardId(e.target.dataset.id) 
-    .then(data => { 
-      if (e.target.nodeName !== 'IMG') return; 
+//       function closeModalHandler(e) { 
+//         if (e.code === 'Escape') { 
+//           modal.close(); 
+//           window.removeEventListener('keydown', closeModalHandler); 
+//         } 
+//       } 
  
-      const markup = filmMarkup(data); 
-      const modal = basicLightbox.create(markup); 
+//       function closeModal(e) { 
+//         modal.close(); 
+//         window.removeEventListener('keydown', closeModalHandler); 
+//       } 
  
-      modal.show(); 
- 
-      const closeBtn = document.querySelector('.modal-close'); 
-      closeBtn.addEventListener('click', closeModal); 
- 
-      window.addEventListener('keydown', closeModalHandler); 
- 
-      function closeModalHandler(e) { 
-        if (e.code === 'Escape') { 
-          modal.close(); 
-          window.removeEventListener('keydown', closeModalHandler); 
-        } 
-      } 
- 
-      function closeModal(e) { 
-        modal.close(); 
-        window.removeEventListener('keydown', closeModalHandler); 
-      } 
- 
-//       //new Function 
-    //   testFetch() 
-      initStorageBtns(); 
-    }) 
-    .then(data => console.log(data)) 
-    .then(data => {}) 
-    .catch(error => { 
-      console.log('oops!'); 
-    }); 
-} 
+// //       //new Function 
+//     //   testFetch() 
+//       initStorageBtns(); 
+//     }) 
+//     .then(data => console.log(data)) 
+//     .then(data => {}) 
+//     .catch(error => { 
+//       console.log('oops!'); 
+//     }); 
+// } 
  
  
  
