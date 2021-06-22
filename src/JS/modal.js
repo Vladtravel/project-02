@@ -28,10 +28,9 @@ function openModal(e) {
 
   toggleModal();
 
-  ApiModal.fetchImage().then(filmMarkup);
+  ApiModal.fetchImage().then(imageMarkup);
 }
 
 function imageMarkup(data) {
   refs.containerModal.insertAdjacentHTML('beforeend', filmMarkup(data));
-  console.log(filmMarkup(data));
 }
