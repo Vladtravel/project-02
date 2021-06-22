@@ -27,6 +27,7 @@ openOneFilm.addEventListener('click', openModal);
  
 const API_KEY = 'b65045320802bba8dd2152de82b219b4' 
  
+<<<<<<< Updated upstream
 // function fetchFilmsCardId(id) { 
 //   const url = https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}; 
 //   return fetch(url) 
@@ -35,6 +36,16 @@ const API_KEY = 'b65045320802bba8dd2152de82b219b4'
 //     .then(data => (console.log(data))) 
 //   // Ошибка тут! Нужно получить доступ к id того фильма на который кликаешь 
 // } 
+=======
+function fetchFilmsCardId(id) { 
+  const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
+  return fetch(url) 
+    .then(response => response.json()) 
+    .then(console.log) 
+    .then(data => (console.log(data))) 
+  // Ошибка тут! Нужно получить доступ к id того фильма на который кликаешь 
+} 
+>>>>>>> Stashed changes
  
 function openModal(e) { 
   e.preventDefault(); 
