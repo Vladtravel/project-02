@@ -8,5 +8,7 @@ return {
     myLibraryBtn: document.querySelector('[data-button-library]'),
     header: document.querySelector('[data-header]'),
     gallery: document.querySelector('.gallery-list'),
-}
+    logo: document.querySelector('.header-logo'),
+  };
+    
 }
