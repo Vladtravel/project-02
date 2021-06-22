@@ -4,7 +4,7 @@
 import getRefs from './getRefs';
 import API from './apiServiсe';
 import filmsTpl from '../templates/search.hbs';
-// import debounce from 'lodash.debounce';
+import debounce from 'lodash.debounce';
 // import '@pnotify/core/dist/BrightTheme.css';
 // import '@pnotify/core/dist/PNotify.css';
 
@@ -57,20 +57,64 @@ function clearImgHeader() {
 // Поиск по ключевому слову
 
 
-refs.input.addEventListener('input', onSearch)
+refs.input.addEventListener('input',  debounce(e => {
+    onSearch(e);
+  }, 500),);
+
+
 
 function onSearch(e) {
   e.preventDefault();
   onClear(); 
   const searchQuery = e.target.value ;
-  
-  API.SearchVideo(searchQuery)
-  .then(data => {     
-      console.log(data)         
-     renderFilmsList(data)    
+    if (searchQuery === '') {
+        refs.errorMessage.classList.add('is-hidden')
+    }
+      API.SearchVideo(searchQuery)
+    .then(data => {
+      if (!data) {
+      return;
+      } else {
+          
+    }
+            console.log(data)
+     renderFilmsList(data) 
+         
   })
-  .catch(onFetchError);   
+  .catch(onFetchError);  
+ 
+  
 }    
+
+
+// -------------------
+// function onSearch(e) {
+//   e.preventDefault();
+//   onClear(); 
+//   const searchQuery = e.target.value ;
+//   if (!searchQuery) {
+//   API.fetchCountries(searchQuery)
+//   .then(data => {    
+//     if (!data) {
+//       return;
+//     } else if (data.length > 10) {
+//       error({
+//         text: 'To many matches found. Please enter a more specific query'
+//       });   
+//     } else if (data.length >= 2 && data.length <= 10) {
+//         renderCountryList(data);
+//     } else if (data.length === 1) {
+//         renderCountryListItem(data);
+//     }
+//   })
+//   .catch(onFetchError); 
+  
+// }}
+
+// -----------------
+
+
+
       
  function renderFilmsList(list) {
                 const markUp = filmsTpl(list)
@@ -81,6 +125,6 @@ function onSearch(e) {
   refs.gallery.innerHTML = ' ';
 }
  
-// function onFetchError(){
-// alert ('Введите коректные данные');
-// }
+function onFetchError(){
+alert ('Введите коректные данные');
+}

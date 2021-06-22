@@ -8,5 +8,7 @@ export default function getRefs() {
     myLibraryBtn: document.querySelector('[data-button-library]'),
     header: document.querySelector('[data-header]'),
     logo: document.querySelector('.header-logo'),
+    gallery: document.querySelector('.gallery-list'),
+    errorMessage: document.querySelector('[data-error]'),
   };
 }
