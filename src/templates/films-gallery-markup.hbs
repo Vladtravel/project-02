@@ -1,7 +1,8 @@
 {{#each this}}
-  <li class='gallery-item' data-id={{id}}>
+  <li class='gallery-item'>
     <div>
       <img
+        data-id={{id}}
         src='https://image.tmdb.org/t/p/original{{poster_path}}'
         alt='{{name}} {{title}}'
         class='film-img'
