@@ -1,40 +1,6 @@
 .header {
   height: 230px;
 
-  //----------------------------
-  // background-image: linear-gradient(to top, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-  //   url(../images/Rectangle1.jpg);
-  // @media screen and (min-device-pixel-ratio: 2),
-  //   screen and (min-resolution: 192dpi),
-  //   screen and (min-resolution: 2dppx) {
-  //   background-image: linear-gradient(to top, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-  //     url(../img/hero480@2x.jpg);
-  // }
-
-  // @media screen and (min-width: 768px) {
-  //   background-image: linear-gradient(to top, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-  //     url(../img/hero768.jpg);
-  //   @media screen and (min-device-pixel-ratio: 2),
-  //     screen and (min-resolution: 192dpi),
-  //     screen and (min-resolution: 2dppx) {
-  //     background-image: linear-gradient(to top, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-  //       url(../img/hero768@2x.jpg);
-  //   }
-  // }
-
-  // @media screen and (min-width: 1024px) {
-  //   background-image: linear-gradient(to top, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-  //     url(../img/hero1200.jpg);
-  //   @media screen and (min-device-pixel-ratio: 2),
-  //     screen and (min-resolution: 192dpi),
-  //     screen and (min-resolution: 2dppx) {
-  //     background-image: linear-gradient(to top, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-  //       url(../img/hero1200@2x.jpg);
-  //   }
-  // }
-
-  // -------------------------------------------------
-
   &-position {
     display: flex;
     align-items: flex-end;
@@ -121,6 +87,7 @@
 
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 22px;
 
     color: #ffffff;
     padding-bottom: 4px;
@@ -140,6 +107,22 @@
     //     color:#ff6b08;
     //   }
     // }
+  }
+
+  &-error {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+
+    color: #ff001b;
   }
 
   &-library {
