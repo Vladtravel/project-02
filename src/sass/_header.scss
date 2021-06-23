@@ -132,14 +132,14 @@
     @media screen and (max-width: 370px) {
       width: 280px;
     }
-    &:focus{
-      outline:none;
-      border-bottom: 0.5px solid #ff6b08;
+    // &:focus{
+    //   outline:none;
+    //   border-bottom: 0.5px solid #ff6b08;
     
-      &::placeholder{
-        color:#ff6b08;
-      }
-    }
+    //   &::placeholder{
+    //     color:#ff6b08;
+    //   }
+    // }
   }
 
   &-library {
