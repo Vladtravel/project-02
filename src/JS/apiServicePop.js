@@ -6,6 +6,7 @@ import NewApiServiceTrend from './apiServiceClass';
 import { createPagination } from './pagination';
 
 import filmsTpl from '../templates/films-gallery-markup.hbs';
+import plugTpl from '../templates/plug.hbs';
 
 const galleryList = document.querySelector('.gallery-list');
 
@@ -27,7 +28,12 @@ renderPopFilms();
 fetchDataOfPopularFilms();
 
 function filmsMarkup(results) {
-  galleryList.insertAdjacentHTML('afterbegin', filmsTpl(results));
+  galleryList.insertAdjacentHTML('beforeend', filmsTpl(results));
+  plugMarkup();
+}
+
+function plugMarkup() {
+  galleryList.insertAdjacentHTML('beforeend', plugTpl());
 }
 
 export function renderPopFilms() {
