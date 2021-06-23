@@ -1,15 +1,8 @@
-// import { alert, defaultModules, error } from '@pnotify/core';
-// import * as PNotifyMobile from '@pnotify/mobile';
-
 import getRefs from './getRefs';
 import API from './apiServiсe';
-import filmsTpl from '../templates/search.hbs';
-// import debounce from 'lodash.debounce';
-// import '@pnotify/core/dist/BrightTheme.css';
-// import '@pnotify/core/dist/PNotify.css';
+import filmsTpl from '../templates/films-gallery-markup.hbs';
+import debounce from 'lodash.debounce';
 
-
-// defaultModules.set(PNotifyMobile, {});
 
 
 const refs = getRefs();
@@ -56,21 +49,52 @@ function clearImgHeader() {
 
 // Поиск по ключевому слову
 
+// const API = new NewApiServiceSearch();
 
-refs.input.addEventListener('input', onSearch)
+
+refs.input.addEventListener('input',  debounce(e => {
+    onSearch(e);
+  }, 500),);
+
+
 
 function onSearch(e) {
   e.preventDefault();
   onClear(); 
   const searchQuery = e.target.value ;
-  
-  API.SearchVideo(searchQuery)
-  .then(data => {     
-      console.log(data)         
-     renderFilmsList(data)    
+  refs.errorMessage.classList.add('is-hidden')
+    if (searchQuery === '') {
+        onFetchError()
+        refs.pagination.classList.add('is-hidden')
+    }
+      API.SearchVideo(searchQuery)
+    .then(data => {
+    //   if (!data) {
+    //   return;
+    //   } else {
+    //     if (data.Array < 20) {
+    //       refs.pagination.classList.add('is-hidden')          
+    //     } else {
+    //       if (data.Array === 0) {            
+    //         onFetchError()
+    //       } else {
+                
+    //     }
+          
+    //   }         
+    // }
+     console.log(data)
+     renderFilmsList(data)       
+       
   })
-  .catch(onFetchError);   
+  // .catch(onFetchError());  
+ 
+  
 }    
+
+
+
+
       
  function renderFilmsList(list) {
                 const markUp = filmsTpl(list)
@@ -81,6 +105,7 @@ function onSearch(e) {
   refs.gallery.innerHTML = ' ';
 }
  
-// function onFetchError(){
+function onFetchError(){
 // alert ('Введите коректные данные');
-// }
+refs.errorMessage.classList.remove('is-hidden')
+}
