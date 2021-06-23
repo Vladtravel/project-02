@@ -54,11 +54,9 @@ testQueueID.forEach((value) => {
 
 libraryRefs.btnWatched.addEventListener('click', () => {
   galleryList.innerHTML = filmsTpl(JSON.parse(localStorage.getItem('watched')))
-  // galleryList.insertAdjacentHTML('beforeend', filmsTpl(JSON.parse(localStorage.getItem('watched'))))
 })
 
 libraryRefs.btnQueue.addEventListener('click', () => {
   galleryList.innerHTML = filmsTpl(JSON.parse(localStorage.getItem('queue')))
-  // galleryList.insertAdjacentHTML('beforeend', filmsTpl(JSON.parse(localStorage.getItem('watched'))))
 })
 
