@@ -5,7 +5,7 @@
         <img class='image' src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt='{{title}}' />
       </div>
 
-      <div>
+      <div class='info-table'>
         <h2 class='movie-title'>{{title}}</h2>
 
         <div class='movie-parameters'>
@@ -19,51 +19,28 @@
           </div>
           <div class='popularity'>
             <p>Popularity</p>
-            <p>{{popularity}}</p>
+            <p class='popularity-value'>{{popularity}}</p>
           </div>
           <div class='original-title'>
             <p>Original Title</p>
-            <p>{{original_title}}</p>
+            <p class='title-value'>{{original_title}}</p>
           </div>
           <div class='genre'>
-            <p>Genre</p>
-            <p>(value)</p>
+            <p class='genre-name'>Genre</p>
+            {{#each genres}}
+              <p class='genres-value'>{{this.name}}</p>
+            {{/each}}
           </div>
         </div>
-        <!-- <div class="movie-parameters">
-                    <ul class="parameters">
-                        <li>Vote</li>
-                        <li>Popularity</li>
-                        <li>Original Title</li>
-                        <li>Genre</li>
-                    </ul>
-    
-                    <ul class="value">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div> -->
 
-        <p>About</p>
-        <p>
+        <p class='about'>About</p>
+        <p class='overview'>
           {{overview}}
         </p>
 
         <div class='modal-btns-add'>
-          <ul class='btns-in-modal'>
-            <li class='btn-in-modal'>
-              <label class='btn-in-modal-label'>
-                <input type='checkbox' value='Watched' class='btn-in-modal-input' />
-                <span class='btn-watched' id='js-WatchedButton'>Watched</span>
-              </label>
-            </li>
-            <li class='btn-in-modal'>
-              <label class='btn-in-modal-label'>
-                <input type='checkbox' value='Queue' class='btn-in-modal-input' />
-                <span class='btn-queue' id='js-QueueButton'>Queue</span>
-              </label>
+            <button class="modal-btn" type="button">add to watched</button>
+            <button class="modal-btn" type="button">add to queue</button>          
             </li>
           </ul>
         </div>
