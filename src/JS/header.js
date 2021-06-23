@@ -1,6 +1,6 @@
 import getRefs from './getRefs';
 import API from './apiServiсe';
-import filmsTpl from '../templates/search.hbs';
+import filmsTpl from '../templates/films-gallery-markup.hbs';
 import debounce from 'lodash.debounce';
 
 
@@ -49,6 +49,8 @@ function clearImgHeader() {
 
 // Поиск по ключевому слову
 
+// const API = new NewApiServiceSearch();
+
 
 refs.input.addEventListener('input',  debounce(e => {
     onSearch(e);
@@ -67,55 +69,29 @@ function onSearch(e) {
     }
       API.SearchVideo(searchQuery)
     .then(data => {
-      if (!data) {
-      return;
-      } else {
-        if (data.Array < 20) {
-          refs.pagination.classList.add('is-hidden')          
-        } else {
-          if (data.Array === 0) {            
-            onFetchError()
-          } else {
-              console.log(data)
-              renderFilmsList(data)  
-        }
+    //   if (!data) {
+    //   return;
+    //   } else {
+    //     if (data.Array < 20) {
+    //       refs.pagination.classList.add('is-hidden')          
+    //     } else {
+    //       if (data.Array === 0) {            
+    //         onFetchError()
+    //       } else {
+                
+    //     }
           
-      }         
-    }
-            
+    //   }         
+    // }
+     console.log(data)
+     renderFilmsList(data)       
        
   })
-  .catch(console.log('ttt'));  
+  // .catch(onFetchError());  
  
   
 }    
 
-
-// -------------------
-// function onSearch(e) {
-//   e.preventDefault();
-//   onClear(); 
-//   const searchQuery = e.target.value ;
-//   if (!searchQuery) {
-//   API.fetchCountries(searchQuery)
-//   .then(data => {    
-//     if (!data) {
-//       return;
-//     } else if (data.length > 10) {
-//       error({
-//         text: 'To many matches found. Please enter a more specific query'
-//       });   
-//     } else if (data.length >= 2 && data.length <= 10) {
-//         renderCountryList(data);
-//     } else if (data.length === 1) {
-//         renderCountryListItem(data);
-//     }
-//   })
-//   .catch(onFetchError); 
-  
-// }}
-
-// -----------------
 
 
 
