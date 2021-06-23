@@ -92,12 +92,21 @@
     color: #ffffff;
     padding-bottom: 4px;
     cursor: pointer;
+    // cursor:initial;
 
     background: url(../images/header/search.svg) no-repeat 3px 1px;
     background-position: right;
     @media screen and (max-width: 370px) {
       width: 280px;
     }
+    // &:focus{
+    //   outline:none;
+    //   border-bottom: 0.5px solid #ff6b08;
+    
+    //   &::placeholder{
+    //     color:#ff6b08;
+    //   }
+    // }
   }
 
   &-error {
