@@ -1,20 +1,6 @@
 import filmMarkup from '../templates/one-film-markup.hbs';
 import NewModalService from './apiModal';
 
-// const refs = {
-//   openModalBtn: document.querySelector('[data-modal-open]'),
-//   closeModalBtn: document.querySelector('[data-modal-close]'),
-//   backdrop: document.querySelector('[data-backdrop]'),
-//   ,
-// };
-
-// refs.openModalBtn.addEventListener('click', toggleModal);
-// refs.closeModalBtn.addEventListener('click', toggleModal);
-
-// function toggleModal() {
-//   refs.backdrop.classList.toggle('is-hidden');
-// }
-
 const containerModal = document.querySelector('.container-card');
 const openOneFilm = document.querySelector('.gallery-list');
 
@@ -28,20 +14,16 @@ function openModal(e) {
 
   // toggleModal();
 
-  // function some() {
-  //   const closeBtn = document.querySelector('.modal-close')
-  //   closeBtn.addEventListener('click', closeModal)
-
-  //   function closeModal(e) {
-  //     console.log(some)
-  //   }
-  // }
-
-  //
-
   ApiModal.fetchImage().then(imageMarkup);
 }
 
 function imageMarkup(data) {
   containerModal.insertAdjacentHTML('beforeend', filmMarkup(data));
+  const closeModalBtn = document.querySelector('.close-modal');
+  closeModalBtn.addEventListener('click', toggleModal);
+}
+
+function toggleModal() {
+  const modal = document.querySelector('[data-modal]');
+  modal.classList.toggle('is-hidden');
 }
