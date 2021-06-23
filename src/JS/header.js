@@ -1,15 +1,8 @@
-// import { alert, defaultModules, error } from '@pnotify/core';
-// import * as PNotifyMobile from '@pnotify/mobile';
-
 import getRefs from './getRefs';
 import API from './apiServiсe';
 import filmsTpl from '../templates/search.hbs';
 import debounce from 'lodash.debounce';
-// import '@pnotify/core/dist/BrightTheme.css';
-// import '@pnotify/core/dist/PNotify.css';
 
-
-// defaultModules.set(PNotifyMobile, {});
 
 
 const refs = getRefs();
@@ -67,21 +60,32 @@ function onSearch(e) {
   e.preventDefault();
   onClear(); 
   const searchQuery = e.target.value ;
+  refs.errorMessage.classList.add('is-hidden')
     if (searchQuery === '') {
-        refs.errorMessage.classList.add('is-hidden')
+        onFetchError()
+        refs.pagination.classList.add('is-hidden')
     }
       API.SearchVideo(searchQuery)
     .then(data => {
       if (!data) {
       return;
       } else {
+        if (data.Array < 20) {
+          refs.pagination.classList.add('is-hidden')          
+        } else {
+          if (data.Array === 0) {            
+            onFetchError()
+          } else {
+              console.log(data)
+              renderFilmsList(data)  
+        }
           
+      }         
     }
-            console.log(data)
-     renderFilmsList(data) 
-         
+            
+       
   })
-  .catch(onFetchError);  
+  .catch(console.log('ttt'));  
  
   
 }    
@@ -126,5 +130,6 @@ function onSearch(e) {
 }
  
 function onFetchError(){
-alert ('Введите коректные данные');
+// alert ('Введите коректные данные');
+refs.errorMessage.classList.remove('is-hidden')
 }

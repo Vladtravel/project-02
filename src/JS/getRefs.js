@@ -10,5 +10,7 @@ export default function getRefs() {
     logo: document.querySelector('.header-logo'),
     gallery: document.querySelector('.gallery-list'),
     errorMessage: document.querySelector('[data-error]'),
+    pagination: document.querySelector('.pagination__container'),
+    
   };
 }
