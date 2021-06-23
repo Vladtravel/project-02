@@ -22,8 +22,12 @@ function imageMarkup(data) {
   containerModal.insertAdjacentHTML('beforeend', filmMarkup(data));
   const modal = document.querySelector('[data-modal]');
   modal.classList.remove('is-hidden');
+
   const closeModalBtn = document.querySelector('.close-modal');
   closeModalBtn.addEventListener('click', toggleModal);
+
+  const backdropEl = document.querySelector('.backdrop');
+  backdropEl.addEventListener('click', toggleModal);
 }
 
 function toggleModal() {
