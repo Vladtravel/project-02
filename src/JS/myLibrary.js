@@ -32,33 +32,36 @@ function addToWatched(movie) {
     })
 }
 
-const queue = []
+function addToQueue(movieData) {
+  let queue = [];
 
-function addToQueue(movie) {
-  testFetch(movie)
-    .then(data => queue.push(data))
-    .then(() => {
-      localStorage.setItem('queue', JSON.stringify(queue))
-    })
+  if (localStorage.getItem('queue')) {
+    queue = [...JSON.parse(localStorage.getItem('queue'))];
+  }
+
+  queue.push(movieData)
+
+  localStorage.setItem('queue', JSON.stringify(queue))
 }
 
-testWatchedID.forEach((value) => {
-  addToWatched(value)
-})
+libraryRefs.btnLibrary.addEventListener('click', () => {
+  testWatchedID.forEach((value) => {
+    addToWatched(value)
+  })
 
-testQueueID.forEach((value) => {
-  addToQueue(value)
+  testQueueID.forEach((value) => {
+    testFetch(value)
+      .then(data => addToQueue(data))
+  })
 })
 
 // 4. Вывод готовой подборки
 
 libraryRefs.btnWatched.addEventListener('click', () => {
   galleryList.innerHTML = filmsTpl(JSON.parse(localStorage.getItem('watched')))
-  // galleryList.insertAdjacentHTML('beforeend', filmsTpl(JSON.parse(localStorage.getItem('watched'))))
 })
 
 libraryRefs.btnQueue.addEventListener('click', () => {
   galleryList.innerHTML = filmsTpl(JSON.parse(localStorage.getItem('queue')))
-  // galleryList.insertAdjacentHTML('beforeend', filmsTpl(JSON.parse(localStorage.getItem('watched'))))
 })
 
