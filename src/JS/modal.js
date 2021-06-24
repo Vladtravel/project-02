@@ -28,6 +28,36 @@ function imageMarkup(data) {
 
   const backdropEl = document.querySelector('.backdrop');
   backdropEl.addEventListener('click', toggleModal);
+
+  // Реализация кнопок очереди
+  let currentMovie = data;
+  console.log(currentMovie)
+
+  const toWatchedBtn = document.querySelector('.add-to-watched');
+  toWatchedBtn.addEventListener('click', () => {
+    let watched = [];
+
+    if (localStorage.getItem('watched')) {
+      watched = [...JSON.parse(localStorage.getItem('watched'))];
+    }
+
+    watched.push(currentMovie)
+
+    localStorage.setItem('watched', JSON.stringify(watched))
+  })
+
+  const toQueueBtn = document.querySelector('.add-to-queue');
+  toQueueBtn.addEventListener('click', () => {
+    let queue = [];
+
+    if (localStorage.getItem('queue')) {
+      queue = [...JSON.parse(localStorage.getItem('queue'))];
+    }
+
+    queue.push(currentMovie)
+
+    localStorage.setItem('queue', JSON.stringify(queue))
+  })
 }
 
 function toggleModal() {
