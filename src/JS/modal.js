@@ -18,12 +18,19 @@ function openModal(e) {
 }
 
 function imageMarkup(data) {
+  containerModal.innerHTML = '';
   containerModal.insertAdjacentHTML('beforeend', filmMarkup(data));
+  const modal = document.querySelector('[data-modal]');
+  modal.classList.remove('is-hidden');
+
   const closeModalBtn = document.querySelector('.close-modal');
   closeModalBtn.addEventListener('click', toggleModal);
+
+  const backdropEl = document.querySelector('.backdrop');
+  backdropEl.addEventListener('click', toggleModal);
 }
 
 function toggleModal() {
   const modal = document.querySelector('[data-modal]');
-  modal.classList.toggle('is-hidden');
+  modal.classList.add('is-hidden');
 }
