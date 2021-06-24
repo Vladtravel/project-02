@@ -15,7 +15,7 @@ export default class VideoApiService {
         return data.results;
       });
   }
-  fetchFilmsPages() {
+  fetchFilmsPagesQ() {
     const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
     return fetch(url).then(response => response.json());
   }

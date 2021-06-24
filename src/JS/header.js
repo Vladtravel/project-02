@@ -4,7 +4,6 @@ import debounce from 'lodash.debounce';
 import VideoApiService from './apiServiceSearch';
 import { createPagination } from './pagination';
 
-
 const filmApiService = new VideoApiService();
 const refs = getRefs();
 
@@ -58,45 +57,45 @@ refs.input.addEventListener(
 
 function onSearch(e) {
   e.preventDefault();
-  onClear();  
- filmApiService.query = e.target.value;
-  console.log(filmApiService.query)
+  onClear();
+  filmApiService.query = e.target.value;
+  console.log(filmApiService.query);
+
   refs.errorMessage.classList.add('is-hidden');
-  if (filmApiService.query === '') {    
+  if (filmApiService.query === '') {
     refs.pagination.classList.add('is-hidden');
-    return;    
+    return;
   }
   filmApiService
     .insertGenresToSearch()
     .then(data => {
       if (!data) {
-      return;
+        return;
       } else {
-        console.log(data)
-        if (data.length === 0 ) {
-         onFetchError()
+        console.log(data);
+        if (data.length === 0) {
+          onFetchError();
         } else {
           if (data.length < 20) {
-             refs.pagination.classList.add('is-hidden')
-             renderFilmsList(data)
+            refs.pagination.classList.add('is-hidden');
+            renderFilmsList(data);
           } else {
-              console.log(data);
-              renderFilmsList(data);
+            console.log(data);
+            renderFilmsList(data);
+            fetchDataOfSearchFilms();
+          }
         }
       }
-    }    
-  })    
+    })
     .catch(err => {
       onFetchError(err);
     });
-
 }
 
 function renderFilmsList(list) {
   const markUp = filmsTpl(list);
   refs.gallery.innerHTML = markUp;
 }
-
 
 function onClear() {
   refs.gallery.innerHTML = ' ';
@@ -107,24 +106,21 @@ function onFetchError() {
   refs.errorMessage.classList.remove('is-hidden');
 }
 
-
-
-
 // Pagination-----------------------------------------
 
-function fetchSearchFilmsByPage(page, searchQuery) {
+function fetchSearchFilmsByPage(page) {
   filmApiService.pageNum = page;
-  filmApiService.query = searchQuery;
+
   return filmApiService.insertGenresToSearch();
 }
 
-export function fetchDataOfSearchFilms() {
-  filmApiService.fetchFilmsPages().then(results => {
-    createPagination(results.total_pages, results.results, displayList);
+function fetchDataOfSearchFilms() {
+  filmApiService.fetchFilmsPagesQ().then(results => {
+    createPagination(results.total_pages, results.results, displayListQ);
   });
 }
 
-function displayList(wrapper, page) {
+function displayListQ(wrapper, page) {
   wrapper.innerHTML = '';
-  fetchSearchFilmsByPage(page, searchQuery).then(renderSearchFilms);
+  fetchSearchFilmsByPage(page).then(renderFilmsList);
 }
