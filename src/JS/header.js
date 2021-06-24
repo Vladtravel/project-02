@@ -102,7 +102,6 @@ function onClear() {
 }
 
 function onFetchError() {
-  // alert ('Введите коректные данные');
   refs.errorMessage.classList.remove('is-hidden');
 }
 
