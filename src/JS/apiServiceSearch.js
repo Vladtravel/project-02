@@ -61,5 +61,3 @@ export default class VideoApiService {
     this.page = newPage;
   }
 }
-
-
