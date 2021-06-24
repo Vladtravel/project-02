@@ -2,17 +2,18 @@ import filmMarkup from '../templates/one-film-markup.hbs';
 import NewModalService from './apiModal';
 
 const containerModal = document.querySelector('.container-card');
-const openOneFilm = document.querySelector('.gallery-list');
 
+const openOneFilm = document.querySelector('.gallery-list');
 openOneFilm.addEventListener('click', openModal);
 
 const ApiModal = new NewModalService();
 
 function openModal(e) {
-  console.log(e.target.dataset.id);
+  console.log(e);
+  if (e.target.nodeName !== 'IMG') {
+    return;
+  }
   ApiModal.query = e.target.dataset.id;
-
-  // toggleModal();
 
   ApiModal.fetchImage().then(imageMarkup);
 }
