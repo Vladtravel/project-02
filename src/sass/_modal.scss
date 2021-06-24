@@ -16,8 +16,7 @@
 .modal {
   position: absolute;
   width: 882px;
-  // height: 568px;
-  height: auto;
+  height: 568px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -51,11 +50,8 @@
 }
 
 .image {
-
-  // width: 396px;
-  // height: 477.8px;
-  width: 100%;
-  height: 100%;
+  width: 396px;
+  height: 477.8px;
 }
 
 .one-film-markup {
