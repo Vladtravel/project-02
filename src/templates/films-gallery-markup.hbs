@@ -10,13 +10,14 @@
         height='440'
       />
     </div>
-    <div>
+    <div class='film-info'>
       <p class='film-title'>{{name}} {{title}}</p>
       <p class='film-text'><span>{{#each genres}}
             {{name}}<span class='comma'>,</span>
           {{/each}}</span>
         |
-        <span>{{first_air_date}} {{release_date}}</span></p>
+        <span>{{first_air_date}} {{release_date}}</span><span class='rait'>{{vote_average}}</span>
+      </p>
     </div>
   </li>
 {{/each}}

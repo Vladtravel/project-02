@@ -189,3 +189,44 @@ img {
 .plug {
   border: solid 1px black;
 }
+
+.film-info {
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 30px;
+  }
+}
+
+.film-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.film-text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #ff6b01;
+}
+
+.rait {
+  width: 36px;
+  height: 16px;
+  padding: 1px 10px;
+  margin-left: 8px;
+  border-radius: 5px;
+  background: #ff6b01;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
