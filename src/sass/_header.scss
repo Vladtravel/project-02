@@ -1,4 +1,7 @@
 .header {
+  @media screen and (max-width: 320px) {
+    width: 320px;
+  }
   height: 230px;
 
   &-position {
@@ -122,6 +125,9 @@
   &-library {
     display: flex;
     justify-content: center;
+    @media screen and (min-width: 320px) {
+      width: 100%;
+    }
   }
 
   &-library-button {
@@ -139,8 +145,11 @@
     background-color: transparent;
     color: #ffffff;
 
-    width: 136px;
+    width: 130px;
     height: 44px;
+    @media screen and (min-width: 768px) {
+      width: 136px;
+    }
 
     border: 1px solid #ffffff;
     border-radius: 5px;
