@@ -28,7 +28,7 @@
           <div class='genre'>
             <p class='genre-name'>Genre</p>
             {{#each genres}}
-              <p class='genres-value'>{{this.name}}</p>
+            <p class='genres-value'>{{this.name}}</p>
             {{/each}}
           </div>
         </div>
@@ -39,22 +39,16 @@
         </p>
 
         <div class='modal-btns-add'>
-            <button class="modal-btn" type="button">add to watched</button>
-            <button class="modal-btn" type="button">add to queue</button>          
-            </li>
+          <button class="modal-btn add-to-watched" type="button">add to watched</button>
+          <button class="modal-btn add-to-queue" type="button">add to queue</button>
+          </li>
           </ul>
         </div>
 
       </div>
     </div>
     <button aria-label='Закрытие окна' class='close-modal' data-modal-close type='button'>
-      <svg
-        width='30'
-        height='30'
-        viewBox='0 0 30 30'
-        fill='none'
-        xmlns='http://www.w3.org/2000/svg'
-      >
+      <svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path d='M8 8L22 22' stroke='black' stroke-width='2'></path>
         <path d='M8 22L22 8' stroke='black' stroke-width='2'></path>
       </svg>

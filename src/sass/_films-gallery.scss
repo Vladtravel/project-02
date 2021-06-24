@@ -221,23 +221,34 @@ img {
 .film-img {
   width: 280px;
   height: 402px;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     width: 294px;
     height: 398px;
+    cursor: pointer;
   }
 
   @media screen and (min-width: 1024px) {
     width: 274px;
     height: 398px;
+    cursor: pointer;
   }
 }
 
 .film-info {
   margin-top: 10px;
   margin-bottom: 20px;
+  // word-wrap: break-word;
+  width: 280px;
 
   @media screen and (min-width: 768px) {
+    width: 294px;
+    margin-bottom: 30px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 274px;
     margin-bottom: 30px;
   }
 }
@@ -256,6 +267,7 @@ img {
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+  // word-wrap: break-word;
   color: #ff6b01;
 }
 
