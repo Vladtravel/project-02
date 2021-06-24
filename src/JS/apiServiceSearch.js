@@ -1,6 +1,8 @@
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'b65045320802bba8dd2152de82b219b4';
 
+import spinner from './spinner';
+
 export default class VideoApiService {
   constructor() {
     this.searchQuery = '';
@@ -13,6 +15,9 @@ export default class VideoApiService {
       .then(response => response.json())
       .then(data => {
         return data.results;
+      })
+      .finally(() => {
+        spinner.hide();
       });
   }
   fetchFilmsPagesQ() {
