@@ -9,6 +9,7 @@ import filmsTpl from '../templates/films-gallery-markup.hbs';
 import plugTpl from '../templates/plug.hbs';
 
 const galleryList = document.querySelector('.gallery-list');
+const spiner = document.querySelector('.sk-fading-circle');
 
 const newApiServiceTrend = new NewApiServiceTrend();
 
