@@ -53,7 +53,7 @@ refs.input.addEventListener(
   'input',
   debounce(e => {
     onSearch(e);
-  }, 500),
+  }, 1000),
 );
 
 function onSearch(e) {
@@ -62,9 +62,9 @@ function onSearch(e) {
  filmApiService.query = e.target.value;
   console.log(filmApiService.query)
   refs.errorMessage.classList.add('is-hidden');
-  if (filmApiService.query === '') {
-    onFetchError();
+  if (filmApiService.query === '') {    
     refs.pagination.classList.add('is-hidden');
+    return;    
   }
   filmApiService
     .insertGenresToSearch()
@@ -73,12 +73,12 @@ function onSearch(e) {
       return;
       } else {
         console.log(data)
-        if (data.length < 20) {
-          refs.pagination.classList.add('is-hidden')
-           renderFilmsList(data)
+        if (data.length === 0 ) {
+         onFetchError()
         } else {
-          if (data.length === 0) {
-            return;
+          if (data.length < 20) {
+             refs.pagination.classList.add('is-hidden')
+             renderFilmsList(data)
           } else {
               console.log(data);
               renderFilmsList(data);
@@ -103,7 +103,7 @@ function onClear() {
 }
 
 function onFetchError() {
-  alert ('Введите коректные данные');
+  // alert ('Введите коректные данные');
   refs.errorMessage.classList.remove('is-hidden');
 }
 
