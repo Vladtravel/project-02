@@ -5,7 +5,7 @@ import './JS/modal.js';
 import './JS/apiModal';
 
 import './JS/apiServiceSearch.js';
-import './JS/searchFilm.js';
+// import './JS/searchFilm.js';
 
 import './JS/apiServicePop.js';
 
