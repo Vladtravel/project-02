@@ -30,38 +30,58 @@ function imageMarkup(data) {
   const backdropEl = document.querySelector('.backdrop');
   backdropEl.addEventListener('click', toggleModal);
 
-  // Реализация кнопок очереди
-  let currentMovie = data;
-  console.log(currentMovie)
-
-  const toWatchedBtn = document.querySelector('.add-to-watched');
-  toWatchedBtn.addEventListener('click', () => {
-    let watched = [];
-
-    if (localStorage.getItem('watched')) {
-      watched = [...JSON.parse(localStorage.getItem('watched'))];
-    }
-
-    watched.push(currentMovie)
-
-    localStorage.setItem('watched', JSON.stringify(watched))
-  })
-
-  const toQueueBtn = document.querySelector('.add-to-queue');
-  toQueueBtn.addEventListener('click', () => {
-    let queue = [];
-
-    if (localStorage.getItem('queue')) {
-      queue = [...JSON.parse(localStorage.getItem('queue'))];
-    }
-
-    queue.push(currentMovie)
-
-    localStorage.setItem('queue', JSON.stringify(queue))
-  })
+  libraryButtons(data)
 }
 
 function toggleModal() {
   const modal = document.querySelector('[data-modal]');
   modal.classList.add('is-hidden');
+}
+
+// Реализация кнопок для MyLibrary
+
+function libraryButtons(movie) {
+  const toWatchedBtn = document.querySelector('.add-to-watched');
+  const toQueueBtn = document.querySelector('.add-to-queue');
+
+  let currentMovie = movie;
+  let watched = [];
+  let queue = [];
+
+  if (localStorage.getItem('watched')) {
+    watched = [...JSON.parse(localStorage.getItem('watched'))];
+  }
+  
+  if (localStorage.getItem('queue')) {
+    queue = [...JSON.parse(localStorage.getItem('queue'))];
+  }
+
+  if (watched.find(el => el.id === currentMovie.id)) {
+    toWatchedBtn.disabled = true;
+    toWatchedBtn.classList.add('is-hidden')
+
+    toQueueBtn.disabled = true;
+    toQueueBtn.classList.add('is-hidden')
+  } else {
+    toWatchedBtn.disabled = false;
+    toWatchedBtn.classList.remove('is-hidden')
+
+    toWatchedBtn.addEventListener('click', () => {
+      watched.push(currentMovie)
+      localStorage.setItem('watched', JSON.stringify(watched))
+    })
+
+    if (queue.find(el => el.id === currentMovie.id)) {
+      toQueueBtn.disabled = true;
+      toQueueBtn.classList.add('is-hidden')
+    } else {
+      toQueueBtn.disabled = false;
+      toQueueBtn.classList.remove('is-hidden')
+
+      toQueueBtn.addEventListener('click', () => {
+        queue.push(currentMovie)
+        localStorage.setItem('queue', JSON.stringify(queue))
+      })
+    }
+  }
 }

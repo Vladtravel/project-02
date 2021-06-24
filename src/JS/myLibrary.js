@@ -1,9 +1,18 @@
+// 1. Импорты
+
 import filmsTpl from '../templates/films-gallery-markup.hbs';
 import getRefs from '../JS/getRefs.js'
 
 const libraryRefs = getRefs()
 
 const galleryList = document.querySelector('.gallery-list');
+
+// 2. Тестовый фетч
+
+// function testFetch(id) {
+//   return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
+//     .then(response => response.json())
+// }
 
 // 3. Сохранение просмотренного в localStorage
 
@@ -31,6 +40,31 @@ const galleryList = document.querySelector('.gallery-list');
 //   localStorage.setItem('queue', JSON.stringify(queue))
 // }
 
+// libraryRefs.btnLibrary.addEventListener('click', () => {
+//   testWatchedID.forEach((value) => {
+//     testFetch(value)
+//       .then(data => addToWatched(data))
+//   })
+
+//   testQueueID.forEach((value) => {
+//     testFetch(value)
+//       .then(data => addToQueue(data))
+//   })
+// })
+
+// toWatchedBtn.addEventListener('click', () => {
+//   testWatchedID.forEach((value) => {
+//     testFetch(value)
+//       .then(data => addToWatched(data))
+//   })
+// })
+
+// toQueueBtn.addEventListener('click', () => {
+//   testQueueID.forEach((value) => {
+//     testFetch(value)
+//       .then(data => addToQueue(data))
+//   })
+// })
 
 // 4. Вывод готовой подборки
 
