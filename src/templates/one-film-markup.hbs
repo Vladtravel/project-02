@@ -10,7 +10,7 @@
 
         <div class='movie-parameters'>
           <div class='vote'>
-            <p>Vote / Votes</p>
+            <p>Vote</p>
             <p>
               <span class='vote-average'>{{vote_average}}</span>
               /
@@ -27,12 +27,9 @@
           </div>
           <div class='genre'>
             <p class='genre-name'>Genre</p>
-            <div class='container-genres'>
-              {{#each genres}}
-              <p class='genres-value'>{{this.name}}</p>
-              {{/each}}
-            </div>
-            
+            {{#each genres}}
+            <p class='genres-value'>{{this.name}}</p>
+            {{/each}}
           </div>
         </div>
 
