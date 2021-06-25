@@ -66,6 +66,7 @@ function onSearch(e) {
     refs.pagination.classList.add('is-hidden');
     return;    
   }
+  
   filmApiService
     .insertGenresToSearch()
     .then(data => {
