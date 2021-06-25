@@ -2,13 +2,14 @@ import vitaliy from '../images/students/vitaliy-yakovlev.jpg';
 import oleksii from '../images/students/alex.jpg';
 import roma from '../images/students/roman-yakimovich.jpg';
 import alexander from '../images/students/alexander-bednichenko.jpg';
+import vlad from '../images/students/Vlad.jpg';
 
 const listStudents = [
   {
-    name: 'Vladimir',
+    name: 'Vladyslav',
     work: 'Team lead',
-    lastname: 'Yakovlev',
-    images: '',
+    lastname: 'Hrytsenko',
+    images: vlad,
   },
   {
     name: 'Oleksii',
