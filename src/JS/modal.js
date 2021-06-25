@@ -2,7 +2,7 @@ import filmMarkup from '../templates/one-film-markup.hbs';
 import NewModalService from './apiModal';
 
 const containerModal = document.querySelector('.container-card');
-
+const bodyEl = document.querySelector('body')
 const openOneFilm = document.querySelector('.gallery-list');
 openOneFilm.addEventListener('click', openModal);
 
@@ -18,6 +18,8 @@ function openModal(e) {
   ApiModal.query = e.target.dataset.id;
 
   ApiModal.fetchImage().then(imageMarkup);
+
+  bodyEl.classList.add('remove-scroll');
 }
 
 function imageMarkup(data) {
@@ -35,11 +37,20 @@ function imageMarkup(data) {
   libraryButtons(data);
 }
 
+// window.addEventListener('keydown', closeModalHandler);
+
+// function closeModalHandler(e) {
+//   if (e.code === 'Escape') {
+//     modal.close();
+//     window.removeEventListener('keydown', closeModalHandler);
+//   }
+
 function toggleModal(e) {
   console.log(e);
   if (e.currentTarget === e.target) {
     const modal = document.querySelector('[data-modal]');
     modal.classList.add('is-hidden');
+    bodyEl.classList.remove('remove-scroll')
   }
 }
 
