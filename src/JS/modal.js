@@ -10,9 +10,11 @@ const ApiModal = new NewModalService();
 
 function openModal(e) {
   console.log(e);
+  
   if (e.target.nodeName !== 'IMG') {
     return;
   }
+
   ApiModal.query = e.target.dataset.id;
 
   ApiModal.fetchImage().then(imageMarkup);
