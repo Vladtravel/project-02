@@ -4,6 +4,7 @@ import debounce from 'lodash.debounce';
 import VideoApiService from './apiServiceSearch';
 import { createPagination } from './pagination';
 
+
 const filmApiService = new VideoApiService();
 const refs = getRefs();
 
@@ -18,6 +19,7 @@ function clickHome() {
   refs.btnHome.classList.add('is-active');
   refs.btnLibrary.classList.add('is-deactive');
   refs.header.classList.add('img-home');
+  refs.input.value = '';
 }
 
 function clickLibrary() {
@@ -28,6 +30,7 @@ function clickLibrary() {
   refs.btnLibrary.classList.add('is-active');
   refs.btnHome.classList.add('is-deactive');
   refs.header.classList.add('img-library');
+  refs.input.value = '';
 }
 
 function clearVisuallyHidden() {
@@ -57,39 +60,40 @@ refs.input.addEventListener(
 
 function onSearch(e) {
   e.preventDefault();
-  onClear();
-  filmApiService.query = e.target.value;
-  console.log(filmApiService.query);
-
+  onClear();  
+ filmApiService.query = e.target.value;
+  console.log(filmApiService.query)
+  refs.pagination.classList.remove('is-hidden')
   refs.errorMessage.classList.add('is-hidden');
-  if (filmApiService.query === '') {
+  if (filmApiService.query === '') {    
     refs.pagination.classList.add('is-hidden');
-    return;
+    return;    
   }
+  
   filmApiService
     .insertGenresToSearch()
     .then(data => {
       if (!data) {
-        return;
+      return;
       } else {
-        console.log(data);
-        if (data.length === 0) {
-          onFetchError();
+        console.log(data)
+        if (data.length === 0 ) {
+         onFetchError()
         } else {
           if (data.length < 20) {
-            refs.pagination.classList.add('is-hidden');
-            renderFilmsList(data);
+             refs.pagination.classList.add('is-hidden')
+             renderFilmsList(data)
           } else {
-            console.log(data);
             renderFilmsList(data);
             fetchDataOfSearchFilms();
-          }
         }
       }
-    })
+    }    
+  })    
     .catch(err => {
       onFetchError(err);
     });
+
 }
 
 function renderFilmsList(list) {
@@ -97,13 +101,18 @@ function renderFilmsList(list) {
   refs.gallery.innerHTML = markUp;
 }
 
+
 function onClear() {
   refs.gallery.innerHTML = ' ';
 }
 
 function onFetchError() {
+  // alert ('Введите коректные данные');
   refs.errorMessage.classList.remove('is-hidden');
 }
+
+
+
 
 // Pagination-----------------------------------------
 
