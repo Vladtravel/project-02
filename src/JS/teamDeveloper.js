@@ -3,6 +3,7 @@ import oleksii from '../images/students/alex.jpg';
 import roma from '../images/students/roman-yakimovich.jpg';
 import alexander from '../images/students/alexander-bednichenko.jpg';
 import vlad from '../images/students/Vlad.jpg';
+import konstantin from '../images/students/konstantin-halkin.jpg';
 
 const listStudents = [
   {
@@ -44,8 +45,8 @@ const listStudents = [
   {
     name: 'Konstantin',
     work: 'Developer',
-    lastname: 'Yakovlev',
-    images: '',
+    lastname: 'Halkin',
+    images: konstantin,
   },
   {
     name: 'Dmitriy',
