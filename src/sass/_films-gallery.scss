@@ -171,6 +171,12 @@ img {
   }
 }
 
+.plug {
+  @media screen and(max-width: 1024px) {
+    display: none;
+  }
+}
+
 .gallery-item {
   @media screen and (min-width: 768px) {
     flex-basis: auto;
@@ -213,9 +219,32 @@ img {
 // }
 
 .plug {
-  border: solid 1px black;
   width: 274px;
-  height: 430px;
+  height: 470px;
+}
+
+.goit {
+  padding-right: 62px;
+  padding-left: 62px;
+  padding-top: 135px;
+  padding-bottom: 145px;
+}
+
+.plug-container {
+  display: block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  align-items: center;
+  margin: 0;
+
+  border: solid 5px #ff6b08;
+}
+
+.goit-img {
+  padding-top: 55px;
+  padding-bottom: 55px;
+  margin-left: 20px;
 }
 
 .film-img {
