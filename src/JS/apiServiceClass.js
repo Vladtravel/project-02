@@ -1,6 +1,8 @@
 const API_KEY = '612ad9e57f61526bfd55d457eca2466c';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
+import spinner from './spinner';
+
 export default class NewApiServiceTrend {
   constructor() {
     this.page = 1;
@@ -8,11 +10,14 @@ export default class NewApiServiceTrend {
 
   fetchFilms() {
     const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}&page=${this.page}`;
-
+    spinner.show();
     return fetch(url)
       .then(response => response.json())
       .then(data => {
         return data.results;
+      })
+      .finally(() => {
+        spinner.hide();
       });
   }
 
@@ -57,9 +62,14 @@ export default class NewApiServiceTrend {
 
   fetchFilmsPages() {
     const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}&page=${this.page}`;
-    return fetch(url).then(response => {
-      return response.json();
-    });
+    spinner.show();
+    return fetch(url)
+      .then(response => {
+        return response.json();
+      })
+      .finally(() => {
+        spinner.hide();
+      });
   }
 
   get pageNum() {
