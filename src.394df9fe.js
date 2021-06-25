@@ -38,4 +38,4 @@ const o=document.querySelector("#myBtn");function t(){document.body.scrollTop>20
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./JS/header.js"),require("./JS/modal.js"),require("./JS/apiModal"),require("./JS/apiServiceSearch.js"),require("./JS/apiServicePop.js"),require("./JS/myLibrary.js"),require("./JS/pagination.js"),require("./JS/up-arrow");
 },{"./sass/main.scss":"clu1","./JS/header.js":"Ue5A","./JS/modal.js":"JjjK","./JS/apiModal":"PZWJ","./JS/apiServiceSearch.js":"mdHM","./JS/apiServicePop.js":"B6nc","./JS/myLibrary.js":"quyV","./JS/pagination.js":"EKHO","./JS/up-arrow":"snSB"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-02/src.4684665f.js.map
+//# sourceMappingURL=/project-02/src.394df9fe.js.map
