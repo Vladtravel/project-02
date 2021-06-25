@@ -10,9 +10,11 @@ const ApiModal = new NewModalService();
 
 function openModal(e) {
   console.log(e);
+
   if (e.target.nodeName !== 'IMG') {
     return;
   }
+
   ApiModal.query = e.target.dataset.id;
 
   ApiModal.fetchImage().then(imageMarkup);
@@ -30,12 +32,15 @@ function imageMarkup(data) {
   const backdropEl = document.querySelector('.backdrop');
   backdropEl.addEventListener('click', toggleModal);
 
-  libraryButtons(data)
+  libraryButtons(data);
 }
 
-function toggleModal() {
-  const modal = document.querySelector('[data-modal]');
-  modal.classList.add('is-hidden');
+function toggleModal(e) {
+  console.log(e);
+  if (e.currentTarget === e.target) {
+    const modal = document.querySelector('[data-modal]');
+    modal.classList.add('is-hidden');
+  }
 }
 
 // Реализация кнопок для MyLibrary
@@ -51,37 +56,37 @@ function libraryButtons(movie) {
   if (localStorage.getItem('watched')) {
     watched = [...JSON.parse(localStorage.getItem('watched'))];
   }
-  
+
   if (localStorage.getItem('queue')) {
     queue = [...JSON.parse(localStorage.getItem('queue'))];
   }
 
   if (watched.find(el => el.id === currentMovie.id)) {
     toWatchedBtn.disabled = true;
-    toWatchedBtn.classList.add('is-hidden')
+    toWatchedBtn.classList.add('is-hidden');
 
     toQueueBtn.disabled = true;
-    toQueueBtn.classList.add('is-hidden')
+    toQueueBtn.classList.add('is-hidden');
   } else {
     toWatchedBtn.disabled = false;
-    toWatchedBtn.classList.remove('is-hidden')
+    toWatchedBtn.classList.remove('is-hidden');
 
     toWatchedBtn.addEventListener('click', () => {
-      watched.push(currentMovie)
-      localStorage.setItem('watched', JSON.stringify(watched))
-    })
+      watched.push(currentMovie);
+      localStorage.setItem('watched', JSON.stringify(watched));
+    });
 
     if (queue.find(el => el.id === currentMovie.id)) {
       toQueueBtn.disabled = true;
-      toQueueBtn.classList.add('is-hidden')
+      toQueueBtn.classList.add('is-hidden');
     } else {
       toQueueBtn.disabled = false;
-      toQueueBtn.classList.remove('is-hidden')
+      toQueueBtn.classList.remove('is-hidden');
 
       toQueueBtn.addEventListener('click', () => {
-        queue.push(currentMovie)
-        localStorage.setItem('queue', JSON.stringify(queue))
-      })
+        queue.push(currentMovie);
+        localStorage.setItem('queue', JSON.stringify(queue));
+      });
     }
   }
 }
