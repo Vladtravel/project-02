@@ -50,4 +50,4 @@ module.exports="/project-02/Vlad.0042e3d1.jpg";
 },{"../images/students/vitaliy-yakovlev.jpg":"r8ih","../images/students/alex.jpg":"CXVx","../images/students/roman-yakimovich.jpg":"ZVNd","../images/students/alexander-bednichenko.jpg":"b38Q","../images/students/Vlad.jpg":"Seoo"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./JS/header.js"),require("./JS/modal.js"),require("./JS/apiModal"),require("./JS/apiServiceSearch.js"),require("./JS/apiServicePop.js"),require("./JS/myLibrary.js"),require("./JS/pagination.js"),require("./JS/up-arrow"),require("./JS/teamDeveloper");
 },{"./sass/main.scss":"clu1","./JS/header.js":"Ue5A","./JS/modal.js":"JjjK","./JS/apiModal":"PZWJ","./JS/apiServiceSearch.js":"mdHM","./JS/apiServicePop.js":"B6nc","./JS/myLibrary.js":"quyV","./JS/pagination.js":"EKHO","./JS/up-arrow":"snSB","./JS/teamDeveloper":"Ml9S"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-02/src.0e025a96.js.map
+//# sourceMappingURL=/project-02/src.150bd402.js.map
