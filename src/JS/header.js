@@ -4,6 +4,7 @@ import debounce from 'lodash.debounce';
 import VideoApiService from './apiServiceSearch';
 import { createPagination } from './pagination';
 
+
 const filmApiService = new VideoApiService();
 const refs = getRefs();
 
@@ -18,6 +19,7 @@ function clickHome() {
   refs.btnHome.classList.add('is-active');
   refs.btnLibrary.classList.add('is-deactive');
   refs.header.classList.add('img-home');
+  refs.input.value = '';
 }
 
 function clickLibrary() {
@@ -28,6 +30,7 @@ function clickLibrary() {
   refs.btnLibrary.classList.add('is-active');
   refs.btnHome.classList.add('is-deactive');
   refs.header.classList.add('img-library');
+  refs.input.value = '';
 }
 
 function clearVisuallyHidden() {
@@ -60,7 +63,7 @@ function onSearch(e) {
   onClear();
   filmApiService.query = e.target.value;
   console.log(filmApiService.query);
-
+  refs.pagination.classList.remove('is-hidden'); 
   refs.errorMessage.classList.add('is-hidden');
   if (filmApiService.query === '') {
     refs.pagination.classList.add('is-hidden');
@@ -92,8 +95,9 @@ function onSearch(e) {
     });
 }
 
+
 function renderFilmsList(list) {
-  const markUp = filmsTpl(list);
+ const markUp = filmsTpl( list);
   refs.gallery.innerHTML = markUp;
 }
 
@@ -104,6 +108,8 @@ function onClear() {
 function onFetchError() {
   refs.errorMessage.classList.remove('is-hidden');
 }
+
+ 
 
 // Pagination-----------------------------------------
 

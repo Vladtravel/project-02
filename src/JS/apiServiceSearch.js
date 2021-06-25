@@ -3,6 +3,7 @@ const API_KEY = 'b65045320802bba8dd2152de82b219b4';
 
 import spinner from './spinner';
 
+
 export default class VideoApiService {
   constructor() {
     this.searchQuery = '';
@@ -46,7 +47,7 @@ export default class VideoApiService {
                 .map(id => genresList.filter(el => el.id === id))
                 .slice(0, 2)
                 .flat()
-            : 'watch the movie and decide',
+            : 'watch the movie and decide',          
         }));
       });
     });
