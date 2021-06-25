@@ -1,0 +1,31 @@
+footer{
+    background-color:#F7F7F7 ;
+}
+
+.footer{
+    &__container{
+        padding-top: 30px ;
+        padding-bottom: 30px;
+        @media screen and(min-width: 768px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+    }
+    &__text{
+        text-align: center;
+        color: #545454;
+        font-weight: 400;
+        size: 14px;
+        margin-left: 5px;
+    }
+    &__heart{
+        color: #FF6B08;
+         margin: 0 5px;
+    }
+    &__svg{
+        width: 14px;
+        height:  12.75px;
+        color: #FF6B08;
+    }
+}

@@ -1,0 +1,23 @@
+{{#each this}}
+  <li class='gallery-item'>
+    <div>
+      <img
+        data-id={{id}}
+        src='https://image.tmdb.org/t/p/original{{poster_path}}'
+        alt='{{name}} {{title}}'
+        class='film-img'
+        {{! width='274'
+        height='440' }}
+      />
+    </div>
+    <div class='film-info'>
+      <p class='film-title'>{{name}} {{title}}</p>
+      <p class='film-text'><span>{{#each genres}}
+            {{name}}<span class='comma'>,</span>
+          {{/each}}</span>
+        |
+        <span>{{first_air_date}} {{release_date}}</span><span class='rait'>{{vote_average}}</span>
+      </p>
+    </div>
+  </li>
+{{/each}}

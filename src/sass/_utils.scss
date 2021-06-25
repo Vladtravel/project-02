@@ -1,0 +1,211 @@
+//Sizes/breakpoints
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1024px;
+
+.is-active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #ff6b08;
+}
+.is-deactive::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: transparent;
+}
+
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+
+
+
+// .img-home {
+//   background-image: url(../images/header/home1024.jpg);
+// }
+
+// .img-library {
+//   background-image: url(../images/header/lib1024.jpg);
+// }
+.header-cower{
+    background-color: #000000;
+    margin-bottom:60px;
+}
+
+.img-home {
+  margin-left: auto;
+  margin-right: auto;
+
+  // max-width: $mobile;
+  min-height: 230px;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/header/home320.jpg);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media screen and (max-width: ($tablet - 1)) and (min-device-pixel-ratio: 2),
+    screen and (max-width: ($tablet - 1)) and (min-resolution: 192dpi),
+    screen and (max-width: ($tablet - 1)) and (min-resolution: 2dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/home320@2x.jpg);
+  }
+
+  @media screen and (max-width: ($tablet - 1)) and (min-device-pixel-ratio: 3),
+    screen and (max-width: ($tablet - 1)) and (min-resolution: 288dpi),
+    screen and (max-width: ($tablet - 1)) and (min-resolution: 3dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/home320@3x.jpg);
+  }
+
+  @media screen and (min-width: $tablet) {
+    // max-width: $tablet;
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/home768.jpg);
+
+    @media screen and (max-width: ($desktop - 1)) and (min-device-pixel-ratio: 2),
+      screen and (max-width: ($desktop - 1)) and (min-resolution: 192dpi),
+      screen and (max-width: ($desktop - 1)) and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/header/home768@2x.jpg);
+    }
+
+    @media screen and (max-width: ($desktop - 1)) and (min-device-pixel-ratio: 3),
+      screen and (max-width: ($desktop - 1)) and (min-resolution: 288dpi),
+      screen and (max-width: ($desktop - 1)) and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/header/home768@3x.jpg);
+    }
+  }
+
+
+  @media screen and (min-width: $desktop) {
+    max-width: $desktop;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/home1024.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/header/home1024@2x.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/header/home1024@3x.jpg);
+    }
+  }
+}
+
+.img-library {
+  margin-left: auto;
+  margin-right: auto;
+
+  // max-width: $mobile;
+  min-height: 230px;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/header/lib320.jpg);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media screen and (max-width: ($tablet - 1)) and (min-device-pixel-ratio: 2),
+    screen and (max-width: ($tablet - 1)) and (min-resolution: 192dpi),
+    screen and (max-width: ($tablet - 1)) and (min-resolution: 2dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/lib320@2x.jpg);
+  }
+
+  @media screen and (max-width: ($tablet - 1)) and (min-device-pixel-ratio: 3),
+    screen and (max-width: ($tablet - 1)) and (min-resolution: 288dpi),
+    screen and (max-width: ($tablet - 1)) and (min-resolution: 3dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/lib320@3x.jpg);
+  }
+
+  @media screen and (min-width: $tablet) {
+    // max-width: $tablet;
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/lib768.jpg);
+
+    @media screen and (max-width: ($desktop - 1)) and (min-device-pixel-ratio: 2),
+      screen and (max-width: ($desktop - 1)) and (min-resolution: 192dpi),
+      screen and (max-width: ($desktop - 1)) and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/header/lib768@2x.jpg);
+    }
+
+    @media screen and (max-width: ($desktop - 1)) and (min-device-pixel-ratio: 3),
+      screen and (max-width: ($desktop - 1)) and (min-resolution: 288dpi),
+      screen and (max-width: ($desktop - 1)) and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/header/lib768@3x.jpg);
+    }
+  }
+
+
+  @media screen and (min-width: $desktop) {
+    max-width: $desktop;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/lib1024.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/header/lib1024@2x.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/header/lib1024@3x.jpg);
+    }
+  }
+}
