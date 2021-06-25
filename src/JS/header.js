@@ -19,6 +19,7 @@ function clickHome() {
   refs.btnHome.classList.add('is-active');
   refs.btnLibrary.classList.add('is-deactive');
   refs.header.classList.add('img-home');
+  refs.input.value = '';
 }
 
 function clickLibrary() {
@@ -29,6 +30,7 @@ function clickLibrary() {
   refs.btnLibrary.classList.add('is-active');
   refs.btnHome.classList.add('is-deactive');
   refs.header.classList.add('img-library');
+  refs.input.value = '';
 }
 
 function clearVisuallyHidden() {
@@ -61,6 +63,7 @@ function onSearch(e) {
   onClear();  
  filmApiService.query = e.target.value;
   console.log(filmApiService.query)
+  refs.pagination.classList.remove('is-hidden')
   refs.errorMessage.classList.add('is-hidden');
   if (filmApiService.query === '') {    
     refs.pagination.classList.add('is-hidden');
