@@ -11,9 +11,11 @@ const ApiModal = new NewModalService();
 
 function openModal(e) {
   console.log(e);
+  
   if (e.target.nodeName !== 'IMG') {
     return;
   }
+
   ApiModal.query = e.target.dataset.id;
 
   bodyEl.classList.add('remove-scroll');
