@@ -19,6 +19,7 @@ function clickHome() {
   refs.btnHome.classList.add('is-active');
   refs.btnLibrary.classList.add('is-deactive');
   refs.header.classList.add('img-home');
+  refs.input.value = '';
 }
 
 function clickLibrary() {
@@ -29,6 +30,7 @@ function clickLibrary() {
   refs.btnLibrary.classList.add('is-active');
   refs.btnHome.classList.add('is-deactive');
   refs.header.classList.add('img-library');
+  refs.input.value = '';
 }
 
 function clearVisuallyHidden() {
@@ -61,6 +63,7 @@ function onSearch(e) {
   onClear();  
  filmApiService.query = e.target.value;
   console.log(filmApiService.query)
+  refs.pagination.classList.remove('is-hidden')
   refs.errorMessage.classList.add('is-hidden');
   if (filmApiService.query === '') {    
     refs.pagination.classList.add('is-hidden');
@@ -81,8 +84,8 @@ function onSearch(e) {
              refs.pagination.classList.add('is-hidden')
              renderFilmsList(data)
           } else {
-              console.log(data);
-              renderFilmsList(data);
+            renderFilmsList(data);
+            fetchDataOfSearchFilms();
         }
       }
     }    
@@ -113,19 +116,19 @@ function onFetchError() {
 
 // Pagination-----------------------------------------
 
-function fetchSearchFilmsByPage(page, searchQuery) {
+function fetchSearchFilmsByPage(page) {
   filmApiService.pageNum = page;
-  filmApiService.query = searchQuery;
+
   return filmApiService.insertGenresToSearch();
 }
 
-export function fetchDataOfSearchFilms() {
-  filmApiService.fetchFilmsPages().then(results => {
-    createPagination(results.total_pages, results.results, displayList);
+function fetchDataOfSearchFilms() {
+  filmApiService.fetchFilmsPagesQ().then(results => {
+    createPagination(results.total_pages, results.results, displayListQ);
   });
 }
 
-function displayList(wrapper, page) {
+function displayListQ(wrapper, page) {
   wrapper.innerHTML = '';
-  fetchSearchFilmsByPage(page, searchQuery).then(renderSearchFilms);
+  fetchSearchFilmsByPage(page).then(renderFilmsList);
 }
