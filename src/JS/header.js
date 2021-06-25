@@ -1,86 +1,125 @@
-// import { alert, defaultModules, error } from '@pnotify/core';
-// import * as PNotifyMobile from '@pnotify/mobile';
-
 import getRefs from './getRefs';
-import API from './apiServiсe';
-import filmsTpl from '../templates/search.hbs';
-// import debounce from 'lodash.debounce';
-// import '@pnotify/core/dist/BrightTheme.css';
-// import '@pnotify/core/dist/PNotify.css';
+import filmsTpl from '../templates/films-gallery-markup.hbs';
+import debounce from 'lodash.debounce';
+import VideoApiService from './apiServiceSearch';
+import { createPagination } from './pagination';
 
-
-// defaultModules.set(PNotifyMobile, {});
-
-
+const filmApiService = new VideoApiService();
 const refs = getRefs();
 
 refs.btnHome.addEventListener('click', clickHome);
 refs.btnLibrary.addEventListener('click', clickLibrary);
 
 function clickHome() {
-    clearVisuallyHidden();
-    clearActiveStatus();
-    clearImgHeader();
-    refs.myLibraryBtn.classList.add('is-hidden');
-    refs.btnHome.classList.add('is-active');
-    refs.btnLibrary.classList.add('is-deactive');
-    refs.header.classList.add('img-home')
+  clearVisuallyHidden();
+  clearActiveStatus();
+  clearImgHeader();
+  refs.myLibraryBtn.classList.add('is-hidden');
+  refs.btnHome.classList.add('is-active');
+  refs.btnLibrary.classList.add('is-deactive');
+  refs.header.classList.add('img-home');
 }
 
 function clickLibrary() {
-    clearVisuallyHidden();
-    clearActiveStatus();
-    clearImgHeader();
-    refs.input.classList.add('is-hidden');
-    refs.btnLibrary.classList.add('is-active');
-    refs.btnHome.classList.add('is-deactive');
-    refs.header.classList.add('img-library')
-
+  clearVisuallyHidden();
+  clearActiveStatus();
+  clearImgHeader();
+  refs.input.classList.add('is-hidden');
+  refs.btnLibrary.classList.add('is-active');
+  refs.btnHome.classList.add('is-deactive');
+  refs.header.classList.add('img-library');
 }
 
 function clearVisuallyHidden() {
-    refs.input.classList.remove('is-hidden');
-    refs.myLibraryBtn.classList.remove('is-hidden')
+  refs.input.classList.remove('is-hidden');
+  refs.myLibraryBtn.classList.remove('is-hidden');
 }
 function clearActiveStatus() {
-    refs.btnLibrary.classList.remove('is-deactive');
-    refs.btnLibrary.classList.remove('is-active');
-    refs.btnHome.classList.remove('is-active');
-    refs.btnHome.classList.remove('is-deactive')
+  refs.btnLibrary.classList.remove('is-deactive');
+  refs.btnLibrary.classList.remove('is-active');
+  refs.btnHome.classList.remove('is-active');
+  refs.btnHome.classList.remove('is-deactive');
 }
 
 function clearImgHeader() {
-    refs.header.classList.remove('img-home')
-    refs.header.classList.remove('img-library')
+  refs.header.classList.remove('img-home');
+  refs.header.classList.remove('img-library');
 }
 
 // Поиск по ключевому слову
 
-
-refs.input.addEventListener('input', onSearch)
+refs.input.addEventListener(
+  'input',
+  debounce(e => {
+    onSearch(e);
+  }, 1000),
+);
 
 function onSearch(e) {
   e.preventDefault();
-  onClear(); 
-  const searchQuery = e.target.value ;
-  
-  API.SearchVideo(searchQuery)
-  .then(data => {     
-      console.log(data)         
-     renderFilmsList(data)    
-  })
-  .catch(onFetchError);   
-}    
-      
- function renderFilmsList(list) {
-                const markUp = filmsTpl(list)
-                refs.gallery.innerHTML = markUp;
-            }
+  onClear();
+  filmApiService.query = e.target.value;
+  console.log(filmApiService.query);
 
- function onClear () {
+  refs.errorMessage.classList.add('is-hidden');
+  if (filmApiService.query === '') {
+    refs.pagination.classList.add('is-hidden');
+    return;
+  }
+  filmApiService
+    .insertGenresToSearch()
+    .then(data => {
+      if (!data) {
+        return;
+      } else {
+        console.log(data);
+        if (data.length === 0) {
+          onFetchError();
+        } else {
+          if (data.length < 20) {
+            refs.pagination.classList.add('is-hidden');
+            renderFilmsList(data);
+          } else {
+            console.log(data);
+            renderFilmsList(data);
+            fetchDataOfSearchFilms();
+          }
+        }
+      }
+    })
+    .catch(err => {
+      onFetchError(err);
+    });
+}
+
+function renderFilmsList(list) {
+  const markUp = filmsTpl(list);
+  refs.gallery.innerHTML = markUp;
+}
+
+function onClear() {
   refs.gallery.innerHTML = ' ';
 }
- 
-// function onFetchError(){
-// alert ('Введите коректные данные');
-// }
+
+function onFetchError() {
+  refs.errorMessage.classList.remove('is-hidden');
+}
+
+// Pagination-----------------------------------------
+
+function fetchSearchFilmsByPage(page) {
+  filmApiService.pageNum = page;
+
+  return filmApiService.insertGenresToSearch();
+}
+
+function fetchDataOfSearchFilms() {
+  filmApiService.fetchFilmsPagesQ().then(results => {
+    createPagination(results.total_pages, results.results, displayListQ);
+  });
+}
+
+function displayListQ(wrapper, page) {
+  wrapper.innerHTML = '';
+  fetchSearchFilmsByPage(page).then(renderFilmsList);
+}

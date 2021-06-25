@@ -9,5 +9,7 @@ export default function getRefs() {
     header: document.querySelector('[data-header]'),
     logo: document.querySelector('.header-logo'),
     gallery: document.querySelector('.gallery-list'),
+    errorMessage: document.querySelector('[data-error]'),
+    pagination: document.querySelector('.pagination__container'),
   };
 }
