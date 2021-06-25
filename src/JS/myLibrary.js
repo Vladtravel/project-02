@@ -68,11 +68,21 @@ const galleryList = document.querySelector('.gallery-list');
 
 // 4. Вывод готовой подборки
 
-libraryRefs.btnWatched.addEventListener('click', () => {
+function createWatchedGallery() {
   galleryList.innerHTML = filmsTpl(JSON.parse(localStorage.getItem('watched')))
-})
+  libraryRefs.btnWatched.classList.add('current')
+  libraryRefs.btnQueue.classList.remove('current')
+}
 
-libraryRefs.btnQueue.addEventListener('click', () => {
+function createQueueGallery() {
   galleryList.innerHTML = filmsTpl(JSON.parse(localStorage.getItem('queue')))
-})
+  libraryRefs.btnQueue.classList.add('current')
+  libraryRefs.btnWatched.classList.remove('current')
+}
+
+libraryRefs.btnLibrary.addEventListener('click', createWatchedGallery)
+
+libraryRefs.btnWatched.addEventListener('click', createWatchedGallery)
+
+libraryRefs.btnQueue.addEventListener('click', createQueueGallery)
 

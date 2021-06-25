@@ -65,8 +65,8 @@ function libraryButtons(movie) {
     toWatchedBtn.disabled = true;
     toWatchedBtn.classList.add('is-hidden');
 
-    toQueueBtn.disabled = true;
-    toQueueBtn.classList.add('is-hidden');
+    // toQueueBtn.disabled = true;
+    // toQueueBtn.classList.add('is-hidden');
   } else {
     toWatchedBtn.disabled = false;
     toWatchedBtn.classList.remove('is-hidden');
@@ -74,19 +74,25 @@ function libraryButtons(movie) {
     toWatchedBtn.addEventListener('click', () => {
       watched.push(currentMovie);
       localStorage.setItem('watched', JSON.stringify(watched));
+
+      queue = queue.filter(e => e.id !== currentMovie.id)
+      localStorage.setItem('queue', JSON.stringify(queue))
     });
+  }
 
-    if (queue.find(el => el.id === currentMovie.id)) {
-      toQueueBtn.disabled = true;
-      toQueueBtn.classList.add('is-hidden');
-    } else {
-      toQueueBtn.disabled = false;
-      toQueueBtn.classList.remove('is-hidden');
+  if (queue.find(el => el.id === currentMovie.id)) {
+    toQueueBtn.disabled = true;
+    toQueueBtn.classList.add('is-hidden');
+  } else {
+    toQueueBtn.disabled = false;
+    toQueueBtn.classList.remove('is-hidden');
 
-      toQueueBtn.addEventListener('click', () => {
-        queue.push(currentMovie);
-        localStorage.setItem('queue', JSON.stringify(queue));
-      });
-    }
+    toQueueBtn.addEventListener('click', () => {
+      queue.push(currentMovie);
+      localStorage.setItem('queue', JSON.stringify(queue));
+
+      watched = queue.filter(e => e.id !== currentMovie.id)
+      localStorage.setItem('watched', JSON.stringify(watched))
+    });
   }
 }
