@@ -2,9 +2,8 @@ import filmMarkup from '../templates/one-film-markup.hbs';
 import NewModalService from './apiModal';
 
 const containerModal = document.querySelector('.container-card');
-const bodyEl = document.querySelector('body')
-const openOneFilm = document.querySelector('.gallery-list');
 
+const openOneFilm = document.querySelector('.gallery-list');
 openOneFilm.addEventListener('click', openModal);
 
 const ApiModal = new NewModalService();
@@ -16,8 +15,6 @@ function openModal(e) {
   }
   ApiModal.query = e.target.dataset.id;
 
-  bodyEl.classList.add('remove-scroll');
-
   ApiModal.fetchImage().then(imageMarkup);
 }
 
@@ -26,7 +23,6 @@ function imageMarkup(data) {
   containerModal.insertAdjacentHTML('beforeend', filmMarkup(data));
   const modal = document.querySelector('[data-modal]');
   modal.classList.remove('is-hidden');
-  modal.classList.add('modal-scroll');
 
   const closeModalBtn = document.querySelector('.close-modal');
   closeModalBtn.addEventListener('click', toggleModal);
@@ -34,22 +30,12 @@ function imageMarkup(data) {
   const backdropEl = document.querySelector('.backdrop');
   backdropEl.addEventListener('click', toggleModal);
 
-  window.addEventListener('keydown', closeModalHandler);
-
-  libraryButtons(data);
-}
-
-function closeModalHandler(e) {
-  if (e.code === 'Escape') {
-    toggleModal();
-  }
+  libraryButtons(data)
 }
 
 function toggleModal() {
   const modal = document.querySelector('[data-modal]');
-
   modal.classList.add('is-hidden');
-  bodyEl.classList.remove('remove-scroll');
 }
 
 // Реализация кнопок для MyLibrary
