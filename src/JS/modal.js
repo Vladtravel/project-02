@@ -35,9 +35,12 @@ function imageMarkup(data) {
   libraryButtons(data);
 }
 
-function toggleModal() {
-  const modal = document.querySelector('[data-modal]');
-  modal.classList.add('is-hidden');
+function toggleModal(e) {
+  console.log(e);
+  if (e.currentTarget === e.target) {
+    const modal = document.querySelector('[data-modal]');
+    modal.classList.add('is-hidden');
+  }
 }
 
 // Реализация кнопок для MyLibrary
