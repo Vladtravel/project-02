@@ -61,6 +61,7 @@ const refs = {
   divOverlay: document.querySelector('.teambox-overlay'),
   buttonClose: document.querySelector('[data-action = close-teambox]'),
   link: document.querySelector('div div p a'),
+  upBtn: document.querySelector('#myBtn'),
 };
 
 refs.link.addEventListener('click', openModalTeam);
@@ -70,6 +71,7 @@ refs.divOverlay.addEventListener('click', onCloseMauseModal);
 function openModalTeam(e) {
   e.preventDefault();
   refs.divModal.classList.add('is-open');
+  refs.upBtn.classList.add('is-hidden');
 
   document.body.style.overflow = 'hidden';
   window.addEventListener('keydown', closeModaEsc);
@@ -83,6 +85,8 @@ function closeModalTeam() {
 
   if (currentActiveClassModal) {
     currentActiveClassModal.classList.remove('is-open');
+
+    refs.upBtn.classList.remove('is-hidden');
 
     document.body.style.overflow = 'scroll';
 
