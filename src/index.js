@@ -11,5 +11,5 @@ import './JS/apiServicePop.js';
 import './JS/myLibrary.js';
 import './JS/pagination.js';
 
-import './Js/teamDeveloper';
+
 import './JS/up-arrow';
