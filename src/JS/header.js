@@ -3,7 +3,6 @@ import filmsTpl from '../templates/films-gallery-markup.hbs';
 import debounce from 'lodash.debounce';
 import VideoApiService from './apiServiceSearch';
 import { createPagination } from './pagination';
-import imgGost from '../images/tumba.jpg'
 
 const filmApiService = new VideoApiService();
 const refs = getRefs();
@@ -96,8 +95,7 @@ function onSearch(e) {
 
 
 function renderFilmsList(list) {
-  // let img = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : imgGost;
-  const markUp = filmsTpl( list);
+ const markUp = filmsTpl( list);
   refs.gallery.innerHTML = markUp;
 }
 

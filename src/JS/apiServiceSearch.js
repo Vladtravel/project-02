@@ -53,25 +53,6 @@ export default class VideoApiService {
     });
   }
 
-//   let img = poster_path
-//       ? `https://image.tmdb.org/t/p/w500${poster_path}`
-//       : imgGost;
-
-// const movie = [{ id, img, title, movieGenres, releaseDate }];
-//  updateMarkup(movie);
-  
-
-// function updateMarkup(movie) {
-//   let markup = '';
-//   if (movie.status !== '404') {
-//     markup = movieCardsTpl(movie);
-//   }
-
-//   refs.gallery.insertAdjacentHTML('beforeend', markup);
-// }
-
-
-
   get query() {
     return this.searchQuery;
   }
