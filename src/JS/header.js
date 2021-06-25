@@ -3,6 +3,7 @@ import filmsTpl from '../templates/films-gallery-markup.hbs';
 import debounce from 'lodash.debounce';
 import VideoApiService from './apiServiceSearch';
 import { createPagination } from './pagination';
+import imgGost from '../images/tumba.jpg'
 
 const filmApiService = new VideoApiService();
 const refs = getRefs();
@@ -18,6 +19,7 @@ function clickHome() {
   refs.btnHome.classList.add('is-active');
   refs.btnLibrary.classList.add('is-deactive');
   refs.header.classList.add('img-home');
+  refs.input.value = '';
 }
 
 function clickLibrary() {
@@ -92,8 +94,10 @@ function onSearch(e) {
     });
 }
 
+
 function renderFilmsList(list) {
-  const markUp = filmsTpl(list);
+  // let img = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : imgGost;
+  const markUp = filmsTpl( list);
   refs.gallery.innerHTML = markUp;
 }
 
@@ -104,6 +108,8 @@ function onClear() {
 function onFetchError() {
   refs.errorMessage.classList.remove('is-hidden');
 }
+
+ 
 
 // Pagination-----------------------------------------
 
