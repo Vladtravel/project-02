@@ -11,5 +11,7 @@ export default function getRefs() {
     gallery: document.querySelector('.gallery-list'),
     errorMessage: document.querySelector('[data-error]'),
     pagination: document.querySelector('.pagination__container'),
+    checkBox: document.querySelector('.theme-switch__toggle'),
+    body: document.querySelector('body'),
   };
 }

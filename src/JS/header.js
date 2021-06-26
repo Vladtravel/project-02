@@ -62,7 +62,6 @@ function onSearch(e) {
   e.preventDefault();
   onClear();  
  filmApiService.query = e.target.value;
-  console.log(filmApiService.query)
   refs.pagination.classList.remove('is-hidden')
   refs.errorMessage.classList.add('is-hidden');
   if (filmApiService.query === '') {    
@@ -76,7 +75,6 @@ function onSearch(e) {
       if (!data) {
       return;
       } else {
-        console.log(data)
         if (data.length === 0 ) {
          onFetchError()
         } else {
@@ -107,7 +105,6 @@ function onClear() {
 }
 
 function onFetchError() {
-  // alert ('Введите коректные данные');
   refs.errorMessage.classList.remove('is-hidden');
 }
 

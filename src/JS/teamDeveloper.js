@@ -3,6 +3,7 @@ import oleksii from '../images/students/alex.jpg';
 import roma from '../images/students/roman-yakimovich.jpg';
 import alexander from '../images/students/alexander-bednichenko.jpg';
 import vlad from '../images/students/Vlad.jpg';
+import konstantin from '../images/students/konstantin-halkin.jpg';
 
 const listStudents = [
   {
@@ -44,8 +45,8 @@ const listStudents = [
   {
     name: 'Konstantin',
     work: 'Developer',
-    lastname: 'Yakovlev',
-    images: '',
+    lastname: 'Halkin',
+    images: konstantin,
   },
   {
     name: 'Dmitriy',
@@ -60,6 +61,7 @@ const refs = {
   divOverlay: document.querySelector('.teambox-overlay'),
   buttonClose: document.querySelector('[data-action = close-teambox]'),
   link: document.querySelector('div div p a'),
+  upBtn: document.querySelector('#myBtn'),
 };
 
 refs.link.addEventListener('click', openModalTeam);
@@ -69,6 +71,7 @@ refs.divOverlay.addEventListener('click', onCloseMauseModal);
 function openModalTeam(e) {
   e.preventDefault();
   refs.divModal.classList.add('is-open');
+  refs.upBtn.classList.add('is-hidden');
 
   document.body.style.overflow = 'hidden';
   window.addEventListener('keydown', closeModaEsc);
@@ -82,6 +85,8 @@ function closeModalTeam() {
 
   if (currentActiveClassModal) {
     currentActiveClassModal.classList.remove('is-open');
+
+    refs.upBtn.classList.remove('is-hidden');
 
     document.body.style.overflow = 'scroll';
 
