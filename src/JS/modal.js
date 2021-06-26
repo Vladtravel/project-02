@@ -2,7 +2,7 @@ import filmMarkup from '../templates/one-film-markup.hbs';
 import NewModalService from './apiModal';
 
 const containerModal = document.querySelector('.container-card');
-const bodyEl = document.querySelector('body')
+const bodyEl = document.querySelector('body');
 const openOneFilm = document.querySelector('.gallery-list');
 
 openOneFilm.addEventListener('click', openModal);
@@ -10,8 +10,6 @@ openOneFilm.addEventListener('click', openModal);
 const ApiModal = new NewModalService();
 
 function openModal(e) {
-  console.log(e);
-
   if (e.target.nodeName !== 'IMG') {
     return;
   }
@@ -87,8 +85,8 @@ function libraryButtons(movie) {
       watched.push(currentMovie);
       localStorage.setItem('watched', JSON.stringify(watched));
 
-      queue = queue.filter(e => e.id !== currentMovie.id)
-      localStorage.setItem('queue', JSON.stringify(queue))
+      queue = queue.filter(e => e.id !== currentMovie.id);
+      localStorage.setItem('queue', JSON.stringify(queue));
     });
   }
 
@@ -103,8 +101,8 @@ function libraryButtons(movie) {
       queue.push(currentMovie);
       localStorage.setItem('queue', JSON.stringify(queue));
 
-      watched = queue.filter(e => e.id !== currentMovie.id)
-      localStorage.setItem('watched', JSON.stringify(watched))
+      watched = queue.filter(e => e.id !== currentMovie.id);
+      localStorage.setItem('watched', JSON.stringify(watched));
     });
   }
 }
