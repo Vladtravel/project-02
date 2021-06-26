@@ -22,7 +22,7 @@
 .modal {
   position: absolute;
   width: 280px;
-  height: auto;
+  height: 100%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -37,7 +37,7 @@
 
   @media screen and (min-width: 768px) {
     width: 618px;
-    height: auto;
+    height: 100%;
     padding-top: 40px;
     padding-right: 30px;
     padding-bottom: 40px;
