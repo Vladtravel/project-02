@@ -37,13 +37,14 @@ function imageMarkup(data) {
   libraryButtons(data);
 }
 
-// window.addEventListener('keydown', closeModalHandler);
+window.addEventListener('keydown', closeModalHandler);
 
-// function closeModalHandler(e) {
-//   if (e.code === 'Escape') {
-//     modal.close();
-//     window.removeEventListener('keydown', closeModalHandler);
-//   }
+function closeModalHandler(e) {
+  if (e.code === 'Escape') {
+    toggleModal();
+    // window.removeEventListener('keydown', closeModalHandler);
+  }
+}
 
 function toggleModal(e) {
   console.log(e);
