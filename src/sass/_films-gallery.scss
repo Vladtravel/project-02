@@ -266,10 +266,10 @@ img {
 }
 
 .film-info {
+  flex-wrap: wrap;
   margin-top: 10px;
   margin-bottom: 20px;
-  // word-wrap: break-word;
-  width: 280px;
+  // width: 280px;
 
   @media screen and (min-width: 768px) {
     width: 294px;
@@ -283,6 +283,7 @@ img {
 }
 
 .film-title {
+  flex-wrap: wrap;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -292,6 +293,7 @@ img {
 }
 
 .film-text {
+  flex-wrap: wrap;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
