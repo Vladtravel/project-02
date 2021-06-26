@@ -4,7 +4,6 @@ import debounce from 'lodash.debounce';
 import VideoApiService from './apiServiceSearch';
 import { createPagination } from './pagination';
 
-
 const filmApiService = new VideoApiService();
 const refs = getRefs();
 
@@ -60,45 +59,44 @@ refs.input.addEventListener(
 
 function onSearch(e) {
   e.preventDefault();
-  onClear();  
- filmApiService.query = e.target.value;
-  refs.pagination.classList.remove('is-hidden')
+  onClear();
+  filmApiService.query = e.target.value;
+  filmApiService.pageNum = 1;
+  refs.pagination.classList.remove('is-hidden');
   refs.errorMessage.classList.add('is-hidden');
-  if (filmApiService.query === '') {    
+  if (filmApiService.query === '') {
     refs.pagination.classList.add('is-hidden');
-    return;    
+    return;
   }
-  
+
   filmApiService
     .insertGenresToSearch()
     .then(data => {
       if (!data) {
-      return;
+        return;
       } else {
-        if (data.length === 0 ) {
-         onFetchError()
+        if (data.length === 0) {
+          onFetchError();
         } else {
           if (data.length < 20) {
-             refs.pagination.classList.add('is-hidden')
-             renderFilmsList(data)
+            refs.pagination.classList.add('is-hidden');
+            renderFilmsList(data);
           } else {
             renderFilmsList(data);
             fetchDataOfSearchFilms();
+          }
         }
       }
-    }    
-  })    
+    })
     .catch(err => {
       onFetchError(err);
     });
-
 }
 
 function renderFilmsList(list) {
   const markUp = filmsTpl(list);
   refs.gallery.innerHTML = markUp;
 }
-
 
 function onClear() {
   refs.gallery.innerHTML = ' ';
@@ -107,9 +105,6 @@ function onClear() {
 function onFetchError() {
   refs.errorMessage.classList.remove('is-hidden');
 }
-
-
-
 
 // Pagination-----------------------------------------
 
