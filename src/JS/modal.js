@@ -2,8 +2,9 @@ import filmMarkup from '../templates/one-film-markup.hbs';
 import NewModalService from './apiModal';
 
 const containerModal = document.querySelector('.container-card');
-
+const bodyEl = document.querySelector('body')
 const openOneFilm = document.querySelector('.gallery-list');
+
 openOneFilm.addEventListener('click', openModal);
 
 const ApiModal = new NewModalService();
@@ -18,6 +19,8 @@ function openModal(e) {
   ApiModal.query = e.target.dataset.id;
 
   ApiModal.fetchImage().then(imageMarkup);
+
+  bodyEl.classList.add('remove-scroll');
 }
 
 function imageMarkup(data) {
@@ -27,7 +30,7 @@ function imageMarkup(data) {
   modal.classList.remove('is-hidden');
 
   const closeModalBtn = document.querySelector('.close-modal');
-  closeModalBtn.addEventListener('click', toggleModal);
+  closeModalBtn.addEventListener('click', closeByBtn);
 
   const backdropEl = document.querySelector('.backdrop');
   backdropEl.addEventListener('click', toggleModal);
@@ -35,11 +38,20 @@ function imageMarkup(data) {
   libraryButtons(data);
 }
 
+window.addEventListener('keydown', toggleModal);
+
+function closeByBtn() {
+  const modal = document.querySelector('[data-modal]');
+  modal.classList.add('is-hidden');
+  bodyEl.classList.remove('remove-scroll');
+}
+
 function toggleModal(e) {
   console.log(e);
-  if (e.currentTarget === e.target) {
+  if (e.currentTarget === e.target || e.code === 'Escape') {
     const modal = document.querySelector('[data-modal]');
     modal.classList.add('is-hidden');
+    bodyEl.classList.remove('remove-scroll');
   }
 }
 
