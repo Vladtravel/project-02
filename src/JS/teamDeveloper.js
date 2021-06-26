@@ -4,6 +4,7 @@ import roma from '../images/students/roman-yakimovich.jpg';
 import alexander from '../images/students/alexander-bednichenko.jpg';
 import vlad from '../images/students/Vlad.jpg';
 import konstantin from '../images/students/konstantin-halkin.jpg';
+import denis from '../images/students/denis-usov.jpg';
 
 const listStudents = [
   {
@@ -33,14 +34,14 @@ const listStudents = [
   {
     name: 'Alexander',
     work: 'Developer',
-    lastname: 'Yakovlev',
+    lastname: 'Bednichenko',
     images: alexander,
   },
   {
     name: 'Denis',
     work: 'Developer',
-    lastname: 'Yakovlev',
-    images: '',
+    lastname: 'Usov',
+    images: denis,
   },
   {
     name: 'Konstantin',
@@ -51,7 +52,7 @@ const listStudents = [
   {
     name: 'Dmitriy',
     work: 'Developer',
-    lastname: 'Yakovlev',
+    lastname: '',
     images: '',
   },
 ];
