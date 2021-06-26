@@ -45,14 +45,12 @@ function closeByBtn() {
 }
 
 function toggleModal(e) {
-  console.log(e);
   if (e.currentTarget === e.target || e.code === 'Escape') {
     const modal = document.querySelector('[data-modal]');
     modal.classList.add('is-hidden');
     bodyEl.classList.remove('remove-scroll');
   }
 }
-
 
 // Реализация кнопок для MyLibrary
 
