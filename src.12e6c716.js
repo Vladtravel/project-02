@@ -58,4 +58,4 @@ module.exports="/project-02/Dima.e08d4fdd.jpg";
 },{"./getRefs":"wnpO"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./JS/header.js"),require("./JS/modal.js"),require("./JS/apiModal"),require("./JS/apiServiceSearch.js"),require("./JS/apiServicePop.js"),require("./JS/myLibrary.js"),require("./JS/pagination.js"),require("./JS/up-arrow"),require("./JS/teamDeveloper"),require("./JS/toolbar.js");
 },{"./sass/main.scss":"clu1","./JS/header.js":"Ue5A","./JS/modal.js":"JjjK","./JS/apiModal":"PZWJ","./JS/apiServiceSearch.js":"mdHM","./JS/apiServicePop.js":"B6nc","./JS/myLibrary.js":"quyV","./JS/pagination.js":"EKHO","./JS/up-arrow":"snSB","./JS/teamDeveloper":"Ml9S","./JS/toolbar.js":"muDZ"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-02/src.c46d69df.js.map
+//# sourceMappingURL=/project-02/src.12e6c716.js.map
