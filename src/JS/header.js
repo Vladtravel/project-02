@@ -9,6 +9,19 @@ const refs = getRefs();
 
 refs.btnHome.addEventListener('click', clickHome);
 refs.btnLibrary.addEventListener('click', clickLibrary);
+refs.logo.addEventListener('click', clickLogo);
+
+function clickLogo() {
+  clearVisuallyHidden();
+  clearActiveStatus();
+  clearImgHeader();
+  refs.myLibraryBtn.classList.add('is-hidden');
+  refs.btnHome.classList.add('is-active');
+  refs.btnLibrary.classList.add('is-deactive');
+  refs.header.classList.add('img-home');
+  refs.pagination.classList.remove('hide');
+  refs.input.value = '';
+}
 
 function clickHome() {
   clearVisuallyHidden();
@@ -18,6 +31,7 @@ function clickHome() {
   refs.btnHome.classList.add('is-active');
   refs.btnLibrary.classList.add('is-deactive');
   refs.header.classList.add('img-home');
+  refs.pagination.classList.remove('hide');
   refs.input.value = '';
 }
 
@@ -30,6 +44,7 @@ function clickLibrary() {
   refs.btnHome.classList.add('is-deactive');
   refs.header.classList.add('img-library');
   refs.input.value = '';
+  refs.pagination.classList.add('hide');
 }
 
 function clearVisuallyHidden() {
