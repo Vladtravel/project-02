@@ -181,6 +181,10 @@ img {
   border-radius: 5px;
   overflow: hidden;
   cursor: pointer;
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
   @media screen and (min-width: 768px) {
     box-shadow: 2px 1px 4px 2px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
