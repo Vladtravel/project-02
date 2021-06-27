@@ -34,7 +34,7 @@ var t=arguments[3],e="Expected a function",n=NaN,r="[object Symbol]",i=/^\s+|\s+
 },{"./getRefs":"wnpO","./apiServiceClass":"e1iL","./pagination":"EKHO","../templates/films-gallery-markup.hbs":"H48B","../templates/plug.hbs":"ygCA"}],"quyV":[function(require,module,exports) {
 "use strict";var e=r(require("../templates/films-gallery-markup.hbs")),t=r(require("../JS/getRefs.js"));function r(e){return e&&e.__esModule?e:{default:e}}const n=(0,t.default)(),a=document.querySelector(".gallery-list");function c(){a.innerHTML=(0,e.default)(JSON.parse(localStorage.getItem("watched"))),n.btnWatched.classList.add("current"),n.btnQueue.classList.remove("current")}function s(){a.innerHTML=(0,e.default)(JSON.parse(localStorage.getItem("queue"))),n.btnQueue.classList.add("current"),n.btnWatched.classList.remove("current")}n.btnLibrary.addEventListener("click",c),n.btnWatched.addEventListener("click",c),n.btnQueue.addEventListener("click",s);
 },{"../templates/films-gallery-markup.hbs":"H48B","../JS/getRefs.js":"wnpO"}],"snSB":[function(require,module,exports) {
-const o=document.querySelector("#myBtn");function t(){document.body.scrollTop>200||document.documentElement.scrollTop>200?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function e(){document.body.scrollTop=0,document.documentElement.scrollIntoView({behavior:"smooth",block:"start"})}o.addEventListener("click",e),window.onscroll=function(){t()};
+const o=document.querySelector("#myBtn");function n(){document.body.scrollTop>200||document.documentElement.scrollTop>200?o.style.display="block":o.style.display="none"}function t(){document.body.scrollTop=0,document.documentElement.scrollIntoView({behavior:"smooth",block:"start"})}o.addEventListener("click",t),window.onscroll=function(){n()};
 },{}],"r8ih":[function(require,module,exports) {
 module.exports="/project-02/vitaliy-yakovlev.95ae1e63.jpg";
 },{}],"CXVx":[function(require,module,exports) {
@@ -56,4 +56,4 @@ module.exports="/project-02/denis-usov.6a092b02.jpg";
 },{"./getRefs":"wnpO"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./JS/header.js"),require("./JS/modal.js"),require("./JS/apiModal"),require("./JS/apiServiceSearch.js"),require("./JS/apiServicePop.js"),require("./JS/myLibrary.js"),require("./JS/pagination.js"),require("./JS/up-arrow"),require("./JS/teamDeveloper"),require("./JS/toolbar.js");
 },{"./sass/main.scss":"clu1","./JS/header.js":"Ue5A","./JS/modal.js":"JjjK","./JS/apiModal":"PZWJ","./JS/apiServiceSearch.js":"mdHM","./JS/apiServicePop.js":"B6nc","./JS/myLibrary.js":"quyV","./JS/pagination.js":"EKHO","./JS/up-arrow":"snSB","./JS/teamDeveloper":"Ml9S","./JS/toolbar.js":"muDZ"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-02/src.8ed9dbbc.js.map
+//# sourceMappingURL=/project-02/src.68cae6ed.js.map
