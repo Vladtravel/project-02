@@ -5,6 +5,7 @@ import alexander from '../images/students/alexander-bednichenko.jpg';
 import vlad from '../images/students/Vlad.jpg';
 import konstantin from '../images/students/konstantin-halkin.jpg';
 import denis from '../images/students/denis-usov.jpg';
+import dima from '../images/students/Dima.jpg';
 
 const listStudents = [
   {
@@ -53,7 +54,7 @@ const listStudents = [
     name: 'Dmitriy',
     work: 'Developer',
     lastname: '',
-    images: '',
+    images: dima,
   },
 ];
 
