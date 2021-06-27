@@ -306,4 +306,14 @@
   &:not(:last-child) {
     margin-right: 15px;
   }
+
+  &.activated-btn {
+    background-color: #ff6b01;
+    color: white;
+  }
+
+  &.deactivated-btn {
+    background-color: white;
+    color: #000000;
+  }
 }
