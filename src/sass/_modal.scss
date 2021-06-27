@@ -21,21 +21,13 @@
 
 .modal {
   position: absolute;
-  width: 280px;
   max-height: 1200px;
-
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  // margin-top: 20px;
-  // margin-left: auto;
-  // margin-right: auto;
-
-
-  // left: 50%;
-  // top: 50%;
-  // transform: translate(-50%, -50%);
-  
+  max-width:88%;
+	margin-left:auto;
+	margin-right:auto;
+	top:5%;
+	left:6%;
+  right:6%;
   background-color: white;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -47,8 +39,11 @@
   z-index: 10;
 
   @media screen and (min-width: 768px) {
-    width: 618px;
-    // max-height: 700px;
+    max-width: 85%;
+    top:20%;
+	  left:8%;
+    right:8%;
+
     padding-top: 40px;
     padding-right: 30px;
     padding-bottom: 40px;
@@ -56,8 +51,23 @@
   }
 
   @media screen and (min-width: 1024px) {
-    width: 882px;
-    // max-height: 1200px;
+    max-width:87%;
+    top:20%;
+	  left:5%;
+    right:5%;
+
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width:65%;
+    top:15%;
+	  left:23%;
+    right:23%;
+
     padding-top: 50px;
     padding-right: 30px;
     padding-bottom: 40px;
@@ -101,20 +111,21 @@
 .one-film-markup {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .info-table {
-  width: 240px;
+  max-width: 240px;
   height: auto;
 
   @media screen and (min-width: 768px) {
-    width: 264px;
+    max-width: 264px;
     height: auto;
     margin-left: 30px;
   }
 
   @media screen and (min-width: 1024px) {
-    width: 396px;
+    max-width: 500px;
     height: auto;
   }
 }
@@ -269,6 +280,7 @@
 }
 
 .overview {
+  max-width: 390px;
   margin-top: 10px;
   margin-bottom: 21px;
   font-style: normal;
@@ -287,7 +299,7 @@
 }
 
 .modal-btn {
-  width: 113px;
+  width: 112px;
   height: 44px;
   background-color: white;
   border-radius: 5px;
