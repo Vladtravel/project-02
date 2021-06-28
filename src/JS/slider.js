@@ -25,11 +25,11 @@ function renderTrendy() {
     })
     .then(renderSliderFilms)
     .catch(err => {
-        console.log('ups');
+      console.log('ups');
     });
 }
 
 function renderSliderFilms(articles) {
   sliderContainer.innerHTML = filmsCardSliderTpl(articles);
   trailer.createTrailerLink(document.querySelectorAll('.btn-youtube-slider'));
-};
+}
