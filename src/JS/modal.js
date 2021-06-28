@@ -73,44 +73,44 @@ function libraryButtons(movie) {
 
   // Управление кнопкой Add to watched
   if (watched.find(el => el.id === currentMovie.id)) {
-    removeWatchedBtn()
+    removeWatchedBtn();
   } else {
-    addWatchedBtn()
+    addWatchedBtn();
   }
 
   toWatchedBtn.addEventListener('click', () => {
     if (watched.find(el => el.id === currentMovie.id)) {
       watched = watched.filter(e => e.id !== currentMovie.id);
-      localStorage.setItem('watched', JSON.stringify(watched))
+      localStorage.setItem('watched', JSON.stringify(watched));
 
-      addWatchedBtn()
+      addWatchedBtn();
     } else {
       watched.push(currentMovie);
       localStorage.setItem('watched', JSON.stringify(watched));
 
-      if (queue.find(el => el.id === currentMovie.id)) { 
+      if (queue.find(el => el.id === currentMovie.id)) {
         queue = queue.filter(e => e.id !== currentMovie.id);
         localStorage.setItem('queue', JSON.stringify(queue));
-        addQueueBtn()
+        addQueueBtn();
       }
 
-      removeWatchedBtn()
+      removeWatchedBtn();
     }
   });
 
   // Управление кнопкой Add to queue
   if (queue.find(el => el.id === currentMovie.id)) {
-    removeQueueBtn()
+    removeQueueBtn();
   } else {
-    addQueueBtn()
+    addQueueBtn();
   }
 
   toQueueBtn.addEventListener('click', () => {
     if (queue.find(el => el.id === currentMovie.id)) {
       queue = queue.filter(e => e.id !== currentMovie.id);
-      localStorage.setItem('queue', JSON.stringify(queue))
+      localStorage.setItem('queue', JSON.stringify(queue));
 
-      addQueueBtn()
+      addQueueBtn();
     } else {
       queue.push(currentMovie);
       localStorage.setItem('queue', JSON.stringify(queue));
@@ -118,34 +118,34 @@ function libraryButtons(movie) {
       if (watched.find(el => el.id === currentMovie.id)) {
         watched = watched.filter(e => e.id !== currentMovie.id);
         localStorage.setItem('watched', JSON.stringify(watched));
-        addWatchedBtn()
+        addWatchedBtn();
       }
-      
-      removeQueueBtn()
+
+      removeQueueBtn();
     }
   });
 
   function addWatchedBtn() {
     toWatchedBtn.classList.add('deactivated-btn');
     toWatchedBtn.classList.remove('activated-btn');
-    toWatchedBtn.textContent = 'Add to watched'
+    toWatchedBtn.textContent = 'Add to watched';
   }
 
   function removeWatchedBtn() {
     toWatchedBtn.classList.add('activated-btn');
     toWatchedBtn.classList.remove('deactivated-btn');
-    toWatchedBtn.textContent = 'Remove from watched'
+    toWatchedBtn.textContent = 'Remove from watched';
   }
 
   function addQueueBtn() {
     toQueueBtn.classList.add('deactivated-btn');
     toQueueBtn.classList.remove('activated-btn');
-    toQueueBtn.textContent = 'Add to queue'
+    toQueueBtn.textContent = 'Add to queue';
   }
 
   function removeQueueBtn() {
     toQueueBtn.classList.add('activated-btn');
     toQueueBtn.classList.remove('deactivated-btn');
-    toQueueBtn.textContent = 'Remove from queue'
+    toQueueBtn.textContent = 'Remove from queue';
   }
 }
