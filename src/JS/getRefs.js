@@ -13,5 +13,6 @@ export default function getRefs() {
     pagination: document.querySelector('.pagination__container'),
     checkBox: document.querySelector('.theme-switch__toggle'),
     body: document.querySelector('body'),
+    filmTitle: document.querySelector('.film-title'),
   };
 }
