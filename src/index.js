@@ -13,6 +13,13 @@ import './JS/pagination.js';
 
 import './JS/up-arrow';
 
+
+
+import './js/slider';
+
+
+
 import './JS/teamDeveloper';
 
 import './JS/toolbar.js'
+
