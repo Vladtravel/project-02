@@ -9,6 +9,19 @@ const refs = getRefs();
 
 refs.btnHome.addEventListener('click', clickHome);
 refs.btnLibrary.addEventListener('click', clickLibrary);
+refs.logo.addEventListener('click', clickLogo);
+
+function clickLogo() {
+  clearVisuallyHidden();
+  clearActiveStatus();
+  clearImgHeader();
+  refs.myLibraryBtn.classList.add('is-hidden');
+  refs.btnHome.classList.add('is-active');
+  refs.btnLibrary.classList.add('is-deactive');
+  refs.header.classList.add('img-home');
+  refs.pagination.classList.remove('hide');
+  refs.input.value = '';
+}
 
 function clickHome() {
   clearVisuallyHidden();
@@ -18,6 +31,8 @@ function clickHome() {
   refs.btnHome.classList.add('is-active');
   refs.btnLibrary.classList.add('is-deactive');
   refs.header.classList.add('img-home');
+  refs.pagination.classList.remove('hide');
+  refs.input.value = '';
 }
 
 function clickLibrary() {
@@ -28,6 +43,8 @@ function clickLibrary() {
   refs.btnLibrary.classList.add('is-active');
   refs.btnHome.classList.add('is-deactive');
   refs.header.classList.add('img-library');
+  refs.input.value = '';
+  refs.pagination.classList.add('hide');
 }
 
 function clearVisuallyHidden() {
@@ -59,20 +76,20 @@ function onSearch(e) {
   e.preventDefault();
   onClear();
   filmApiService.query = e.target.value;
-  console.log(filmApiService.query);
-
+  filmApiService.pageNum = 1;
+  refs.pagination.classList.remove('is-hidden');
   refs.errorMessage.classList.add('is-hidden');
   if (filmApiService.query === '') {
     refs.pagination.classList.add('is-hidden');
     return;
   }
+
   filmApiService
     .insertGenresToSearch()
     .then(data => {
       if (!data) {
         return;
       } else {
-        console.log(data);
         if (data.length === 0) {
           onFetchError();
         } else {
@@ -80,7 +97,6 @@ function onSearch(e) {
             refs.pagination.classList.add('is-hidden');
             renderFilmsList(data);
           } else {
-            console.log(data);
             renderFilmsList(data);
             fetchDataOfSearchFilms();
           }

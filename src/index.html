@@ -16,17 +16,18 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body data-body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
-    <p>ТЕСТы</p>
+
     <include src="./partials/header.html"></include>
     <include src="./partials/slider.html"></include>
     <include src="./partials/modal.html"></include>
     <include src="./partials/films-gallery.html"></include>
     <include src="./partials/pagination.html"></include>
     <include src="./partials/footer.html"></include>
+    <include src="./partials/teamDeveloperModal.html"></include>
 
-    <button id="myBtn" title="Go to top">
+    <button id="myBtn" title="Go to top" class="slide-in-blurred-top">
       <svg class="up-svg">
         <use href="./images/InlineSprite.svg#src-1" class="up-icon"></use>
       </svg>

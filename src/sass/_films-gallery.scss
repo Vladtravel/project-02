@@ -154,34 +154,59 @@ img {
 }
 
 .gallery-list {
+  margin-bottom: 50px;
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
-
+    margin-bottom: 50px;
     padding: 0;
-    margin: 0;
   }
 
   @media screen and (min-width: 1024px) {
     display: flex;
     flex-wrap: wrap;
-
+    margin-bottom: 50px;
     padding: 0;
-    margin: 0;
+  }
+}
+
+.plug {
+  @media screen and(max-width: 1024px) {
+    display: none;
   }
 }
 
 .gallery-item {
+  box-shadow: 2px 1px 4px 2px #00000033;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
   @media screen and (min-width: 768px) {
+    box-shadow: 2px 1px 4px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
     flex-basis: auto;
 
     &:nth-child(2n + 1) {
       margin-right: 30px;
     }
+
+    &:nth-child(-n + 18) {
+      margin-bottom: 30px;
+    }
   }
 
   @media screen and (min-width: 1024px) {
     // flex-basis: calc(100% / 3 - 30px);
+    box-shadow: 2px 1px 4px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
     flex-basis: auto;
     margin-right: 30px;
     margin-bottom: 30px;
@@ -201,9 +226,7 @@ img {
 }
 
 .comma:last-child {
-  @media screen and (min-width: 1024px) {
-    display: none;
-  }
+  display: none;
 }
 
 // .plug-container {
@@ -213,25 +236,32 @@ img {
 // }
 
 .plug {
-  border: solid 1px black;
-width: 274px;
-  height: 430px;
+  width: 274px;
+  height: 470px;
+}
 
-  width: 280px;
-  height: 402px;
-  cursor: pointer;
+.goit {
+  padding-right: 62px;
+  padding-left: 62px;
+  padding-top: 135px;
+  padding-bottom: 145px;
+}
 
-  @media screen and (min-width: 768px) {
-    width: 294px;
-    height: 398px;
-    cursor: pointer;
-  }
+.plug-container {
+  display: block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  align-items: center;
+  margin: 0;
 
-  @media screen and (min-width: 1024px) {
-    width: 274px;
-    height: 398px;
-    cursor: pointer;
-  }
+  border: solid 5px #ff6b08;
+}
+
+.goit-img {
+  padding-top: 55px;
+  padding-bottom: 55px;
+  margin-left: 20px;
 }
 
 .film-img {
@@ -253,23 +283,27 @@ width: 274px;
 }
 
 .film-info {
+  flex-wrap: wrap;
   margin-top: 10px;
   margin-bottom: 20px;
-  // word-wrap: break-word;
-  width: 280px;
+  padding-left: 5px;
+  // width: 280px;
 
   @media screen and (min-width: 768px) {
     width: 294px;
     margin-bottom: 30px;
+    padding-left: 5px;
   }
 
   @media screen and (min-width: 1024px) {
     width: 274px;
     margin-bottom: 30px;
+    padding-left: 5px;
   }
 }
 
 .film-title {
+  flex-wrap: wrap;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -279,6 +313,7 @@ width: 274px;
 }
 
 .film-text {
+  flex-wrap: wrap;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
