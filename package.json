@@ -26,8 +26,10 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.4.1",
     "basiclightbox": "^5.0.4",
     "pnotify": "^5.2.0",
-    "promised-handlebars": "^2.0.1"
+    "promised-handlebars": "^2.0.1",
+    "swiper": "^6.7.1"
   }
 }
