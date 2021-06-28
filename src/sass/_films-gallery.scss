@@ -181,8 +181,16 @@ img {
   border-radius: 5px;
   overflow: hidden;
   cursor: pointer;
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: zoomIn;
+  animation-duration: 2s;
+  animation-delay: 0.9ss;
   &:not(:last-child) {
     margin-bottom: 20px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
   }
 
   @media screen and (min-width: 768px) {
@@ -191,6 +199,9 @@ img {
     overflow: hidden;
     cursor: pointer;
     flex-basis: auto;
+    animation: zoomIn;
+    animation-duration: 2s;
+    animation-delay: 0.9ss;
 
     &:nth-child(2n + 1) {
       margin-right: 30px;
@@ -198,6 +209,10 @@ img {
 
     &:nth-child(-n + 18) {
       margin-bottom: 30px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 
@@ -210,6 +225,13 @@ img {
     flex-basis: auto;
     margin-right: 30px;
     margin-bottom: 30px;
+    animation: zoomIn;
+    animation-duration: 2s;
+    animation-delay: 0.9ss;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 
