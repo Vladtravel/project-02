@@ -29,9 +29,6 @@ $desktop: 1024px;
   overflow: hidden;
 }
 
-
-
-
 // .img-home {
 //   background-image: url(../images/header/home1024.jpg);
 // }
@@ -39,9 +36,9 @@ $desktop: 1024px;
 // .img-library {
 //   background-image: url(../images/header/lib1024.jpg);
 // }
-.header-cower{
-    background-color: #000000;
-    margin-bottom:60px;
+.header-cower {
+  background-color: #000000;
+  margin-bottom: 20px;
 }
 
 .img-home {
@@ -81,24 +78,17 @@ $desktop: 1024px;
     @media screen and (max-width: ($desktop - 1)) and (min-device-pixel-ratio: 2),
       screen and (max-width: ($desktop - 1)) and (min-resolution: 192dpi),
       screen and (max-width: ($desktop - 1)) and (min-resolution: 2dppx) {
-      background-image: linear-gradient(
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/home768@2x.jpg);
     }
 
     @media screen and (max-width: ($desktop - 1)) and (min-device-pixel-ratio: 3),
       screen and (max-width: ($desktop - 1)) and (min-resolution: 288dpi),
       screen and (max-width: ($desktop - 1)) and (min-resolution: 3dppx) {
-      background-image: linear-gradient(
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/home768@3x.jpg);
     }
   }
-
 
   @media screen and (min-width: $desktop) {
     max-width: $desktop;
@@ -108,20 +98,14 @@ $desktop: 1024px;
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: linear-gradient(
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/home1024@2x.jpg);
     }
 
     @media screen and (min-device-pixel-ratio: 3),
       screen and (min-resolution: 288dpi),
       screen and (min-resolution: 3dppx) {
-      background-image: linear-gradient(
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/home1024@3x.jpg);
     }
   }
@@ -164,24 +148,17 @@ $desktop: 1024px;
     @media screen and (max-width: ($desktop - 1)) and (min-device-pixel-ratio: 2),
       screen and (max-width: ($desktop - 1)) and (min-resolution: 192dpi),
       screen and (max-width: ($desktop - 1)) and (min-resolution: 2dppx) {
-      background-image: linear-gradient(
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/lib768@2x.jpg);
     }
 
     @media screen and (max-width: ($desktop - 1)) and (min-device-pixel-ratio: 3),
       screen and (max-width: ($desktop - 1)) and (min-resolution: 288dpi),
       screen and (max-width: ($desktop - 1)) and (min-resolution: 3dppx) {
-      background-image: linear-gradient(
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/lib768@3x.jpg);
     }
   }
-
 
   @media screen and (min-width: $desktop) {
     max-width: $desktop;
@@ -191,20 +168,14 @@ $desktop: 1024px;
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: linear-gradient(
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/lib1024@2x.jpg);
     }
 
     @media screen and (min-device-pixel-ratio: 3),
       screen and (min-resolution: 288dpi),
       screen and (min-resolution: 3dppx) {
-      background-image: linear-gradient(
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/lib1024@3x.jpg);
     }
   }
