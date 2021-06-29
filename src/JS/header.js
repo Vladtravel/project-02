@@ -22,6 +22,7 @@ function clickLogo() {
   refs.header.classList.add('img-home');
   refs.pagination.classList.remove('hide');
   refs.input.value = '';
+  refs.errorMessage.classList.add('is-hidden')
 }
 
 function clickHome() {
@@ -34,6 +35,7 @@ function clickHome() {
   refs.header.classList.add('img-home');
   refs.pagination.classList.remove('hide');
   refs.input.value = '';
+  refs.errorMessage.classList.add('is-hidden')
 }
 
 function clickLibrary() {
@@ -46,6 +48,7 @@ function clickLibrary() {
   refs.header.classList.add('img-library');
   refs.input.value = '';
   refs.pagination.classList.add('hide');
+  refs.errorMessage.classList.add('is-hidden')
 }
 
 function clearVisuallyHidden() {
