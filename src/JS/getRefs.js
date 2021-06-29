@@ -13,6 +13,9 @@ export default function getRefs() {
     pagination: document.querySelector('.pagination__container'),
     checkBox: document.querySelector('.theme-switch__toggle'),
     body: document.querySelector('body'),
-    filmTitle: document.querySelectorAll('.film-title','.film-title-dark'),
+    // filmTitle: document.querySelectorAll('.film-title', '.film-title-dark'),
+    btnCloseSign: document.querySelector('[data-sign-close]'),
+    backdropSign: document.querySelector('[data-sign]'),
+    btnSign: document.querySelector('[data-sign-btn]'),
   };
 }

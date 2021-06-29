@@ -16,3 +16,5 @@ import './JS/up-arrow';
 import './JS/teamDeveloper';
 
 import './JS/toolbar.js';
+
+import './JS/modalSign.js';
