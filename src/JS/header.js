@@ -3,6 +3,7 @@ import filmsTpl from '../templates/films-gallery-markup.hbs';
 import debounce from 'lodash.debounce';
 import VideoApiService from './apiServiceSearch';
 import { createPagination } from './pagination';
+import { onClickTheme } from './toolbar';
 
 const filmApiService = new VideoApiService();
 const refs = getRefs();
@@ -75,6 +76,7 @@ refs.input.addEventListener(
 function onSearch(e) {
   e.preventDefault();
   onClear();
+  
   filmApiService.query = e.target.value;
   filmApiService.pageNum = 1;
   refs.pagination.classList.remove('is-hidden');
@@ -96,8 +98,10 @@ function onSearch(e) {
           if (data.length < 20) {
             refs.pagination.classList.add('is-hidden');
             renderFilmsList(data);
+            onClickTheme();
           } else {
             renderFilmsList(data);
+            onClickTheme();
             fetchDataOfSearchFilms();
           }
         }

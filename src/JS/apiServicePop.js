@@ -8,6 +8,8 @@ import { createPagination } from './pagination';
 import filmsTpl from '../templates/films-gallery-markup.hbs';
 import plugTpl from '../templates/plug.hbs';
 
+import { onClickTheme } from './toolbar';
+
 const galleryList = document.querySelector('.gallery-list');
 const spiner = document.querySelector('.sk-fading-circle');
 
@@ -40,6 +42,7 @@ function plugMarkup() {
 export function renderPopFilms() {
   newApiServiceTrend.insertGenresToFilm().then(results => {
     filmsMarkup(results);
+    onClickTheme();
   });
 }
 
