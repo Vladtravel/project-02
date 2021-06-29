@@ -104,6 +104,10 @@
     }
   }
 
+  &-input:focus {
+    border-bottom: 0.5px solid #ff6b08;
+  }
+
   &-error {
     font-family: Roboto;
     font-style: normal;
