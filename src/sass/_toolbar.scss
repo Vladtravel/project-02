@@ -1,12 +1,31 @@
 body.light-theme {
   background-color: #fff;
-  color: #333333;
+  // color: #333333;
 }
 
 body.dark-theme {
   background-color: #333333;
   color: #fff;
 }
+
+// .film-title-dark {
+//   flex-wrap: wrap;
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 12px;
+//   line-height: 16px;
+//   text-transform: uppercase;
+//   color: #ffffff;
+// }
+// .film-title {
+//   flex-wrap: wrap;
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 12px;
+//   line-height: 16px;
+//   text-transform: uppercase;
+//   color: #000000;
+// }
 
 .toolbar {
   display: flex;
