@@ -6,7 +6,7 @@ refs.btnCloseSign.addEventListener('click', closeByBtn)
 
 function openModalSign() {
     refs.backdropSign.classList.remove('is-hidden')
-    bodyEl.classList.add('remove-scroll')
+    refs.body.classList.add('remove-scroll')
 }
 
 function closeByBtn() {
