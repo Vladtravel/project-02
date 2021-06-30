@@ -13,9 +13,15 @@ export default function getRefs() {
     pagination: document.querySelector('.pagination__container'),
     checkBox: document.querySelector('.theme-switch__toggle'),
     body: document.querySelector('body'),
-    // filmTitle: document.querySelectorAll('.film-title', '.film-title-dark'),
+    
     btnCloseSign: document.querySelector('[data-sign-close]'),
     backdropSign: document.querySelector('[data-sign]'),
     btnSign: document.querySelector('[data-sign-btn]'),
+    btnSubmit: document.querySelector('[date-button-backdrop]'),
+    btnRegister: document.querySelector('[date-button-register]'),
+    formAuthorization: document.querySelector('[data-form-authorization]'),
+    formRegister: document.querySelector('[data-form-register]'),
+    btnCreateAccount:document.querySelector('[date-button-create]')
+   
   };
 }
