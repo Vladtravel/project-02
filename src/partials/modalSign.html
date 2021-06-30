@@ -1,11 +1,80 @@
-<div class="backdrop-sign is-hidden " data-sign>
+<div class="backdrop is-hidden " data-sign>
     <div class="modal-sign" >
         <button aria-label='Закрытие окна' class='close-modal' data-sign-close type='button'>
             <svg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path d='M8 8L22 22' stroke='black' stroke-width='2'></path>
                 <path d='M8 22L22 8' stroke='black' stroke-width='2'></path>
-            </svg>
+            </svg>            
         </button>
-        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+        <h2 class="backdrop-title">Выберите способ авторизации</h2>
+                    
+        </form>
+        <form autocomplete="on">
+          <div data-form-authorization>
+                <div class="backdrop-position">
+                    <!-- вход через соцсети -->
+                    <p class="backdrop-title-authorization">Войти через:</p>
+                    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                </div>
+                <!-- вход через логин пароль -->
+                <div class="backdrop-position">
+                    <div class="backdrop-modal-element">
+                        <label class="backdrop-modal-lebel" for="email-modal">Логин</label>
+                        <div class="backdrop-modal-img">
+                            <input class="backdrop-modal-input" type="email"  data-input-backdrop>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="backdrop-modal-element">
+                        <label class="backdrop-modal-lebel" for="tel-modal">Пароль</label>
+                        <div class="backdrop-modal-img">
+                            <input class="backdrop-modal-input" type="tel" >
+                
+                        </div>
+                    </div>
+                
+                    <button class="backdrop-modal-buttom backdrop-position" type="submit" date-button-backdrop>Войти</button>
+                    <button class="backdrop-modal-buttom" type="submit" date-button-register>Регистрация</button>
+                </div>
+          </div>
+            <div data-form-register class="is-hidden" >
+                <!-- создание аккаунта -->
+                 <p class="backdrop-title-authorization">Создать акаунт</p>            
+                            <div class="backdrop-modal-element">
+                                <label class="backdrop-modal-lebel" for="name-modal">Имя</label>
+                                <div class="backdrop-modal-img">
+                                    <input class="backdrop-modal-input" type="name"  data-input-backdrop>
+                                    <svg class="backdrop-modal-icon">
+                                        <use href="./images/symbol-defs.svg#icon-person-black" width=18px height=18px></use>
+                                    </svg>
+                                </div>        
+                            </div>     
+                               
+                        
+                            <div class="backdrop-modal-element">
+                                <label class="backdrop-modal-lebel" for="email-modal">Почта</label>
+                                <div class="backdrop-modal-img">
+                                    <input class="backdrop-modal-input" type="email"  data-input-backdrop>
+                                    <svg class="backdrop-modal-icon">
+                                        <use href="./images/symbol-defs.svg#icon-email-black" width=18px height=18px></use>
+                                    </svg>
+                                </div>
+                            </div>     
+                            
+                            <div class="backdrop-modal-element">
+                                            <label class="backdrop-modal-lebel" for="tel-modal">Пароль</label>
+                                            <div class="backdrop-modal-img">
+                                                <input class="backdrop-modal-input" type="tel" >
+                                                
+                                            </div>
+                                        </div>
+                        
+                            <button class="backdrop-modal-buttom" type="submit" date-button-create>Создать</button> 
+            </div>
+
+        
+        </form>
+        
     </div>
 </div>

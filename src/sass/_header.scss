@@ -15,8 +15,13 @@
     width: 24px;
     height: 24px;
 
-    margin-top: 12px;
+    margin-top: 5px;
     margin-right: 10px;
+    @media screen and (max-width: 767px) {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 5px;
+    }
   }
 
   &-logo-title {
@@ -28,7 +33,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    margin-top: 7px;
+    margin-bottom: 15px;
 
     color: #ffffff;
     @media screen and (max-width: 767px) {
@@ -42,6 +47,10 @@
     text-align: center;
 
     margin-left: auto;
+  }
+  &-menu {
+    margin-left: auto;
+    text-align: center;
   }
 
   &-button {
@@ -70,6 +79,27 @@
     border-radius: 3px;
   }
 
+  &-authorization {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+
+    text-transform: uppercase;
+    background-color: transparent;
+    border-color: #ffffff;
+    border-radius: 5px;
+
+    cursor: pointer;
+    color: #ffffff;
+    padding: 0px;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    padding: 4px 6px;
+    margin-bottom: 5px;
+  }
+
   &-input {
     display: block;
     margin-left: auto;
@@ -91,11 +121,12 @@
     margin-bottom: 22px;
 
     color: #ffffff;
-    padding-bottom: 4px;
+    padding-bottom: 6px;
+    padding-left: 20px;
     cursor: pointer;
 
     background: url(../images/header/search.svg) no-repeat 3px 1px;
-    background-position: right;
+    // background-position: right;
     @media screen and (max-width: 319px) {
       width: 100%;
     }
