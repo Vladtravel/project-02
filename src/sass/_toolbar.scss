@@ -1,37 +1,10 @@
 body.light-theme {
-  background-color: #fff;
-  background-image: url('../images/nature_500px-1983391.jpg!d');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: rgba(235, 206, 225, 0.856);
 }
 
 body.dark-theme {
-  background-color: #333333;
-  background-image: url('../images/vertical_astronaut_black_background_Moon_flag_stars_simple_background-1911299.jpg!d');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #353333;
 }
-
-// .film-title-dark {
-//   flex-wrap: wrap;
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 12px;
-//   line-height: 16px;
-//   text-transform: uppercase;
-//   color: #ffffff;
-// }
-// .film-title {
-//   flex-wrap: wrap;
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 12px;
-//   line-height: 16px;
-//   text-transform: uppercase;
-//   color: #000000;
-// }
 
 .toolbar {
   display: flex;
@@ -46,7 +19,7 @@ body.dark-theme {
 }
 
 .theme-switch__icon {
-  color: currentColor;
+  color: #ff6b08;
   height: 20px;
   width: 20px;
   margin-right: 8px;
@@ -92,7 +65,7 @@ body.dark-theme {
 
 .theme-switch__marker {
   position: relative;
-  background-color: #fff;
+  background-color: #ff6b08;
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -113,5 +86,5 @@ body.dark-theme {
 
 .theme-switch__toggle:focus + .theme-switch__track,
 .theme-switch__toggle:active + .theme-switch__track {
-  box-shadow: 0 0 0 3px #2196f3;
+  box-shadow: 0 0 0 3px transparent;
 }
