@@ -17,7 +17,7 @@ function openModalSign() {
 function closeByBtn() {
   const modal = document.querySelector('[data-sign]');
   modal.classList.add('is-hidden');
-  bodyEl.classList.remove('remove-scroll');
+  refs.body.classList.remove('remove-scroll');
 }
 
 
