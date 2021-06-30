@@ -40,7 +40,7 @@ const o=document.querySelector("#myBtn");function n(){document.body.scrollTop>20
 },{}],"r8ih":[function(require,module,exports) {
 module.exports="/project-02/vitaliy-yakovlev.95ae1e63.jpg";
 },{}],"CXVx":[function(require,module,exports) {
-module.exports="/project-02/alex.63699744.jpg";
+module.exports="/project-02/alex.85b1b7e0.jpg";
 },{}],"ZVNd":[function(require,module,exports) {
 module.exports="/project-02/roman-yakimovich.6587631b.jpg";
 },{}],"b38Q":[function(require,module,exports) {
@@ -60,4 +60,4 @@ module.exports="/project-02/Dima.e2682a7d.jpg";
 },{"./getRefs":"wnpO"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./JS/header.js"),require("./JS/modal.js"),require("./JS/apiModal"),require("./JS/apiServiceSearch.js"),require("./JS/apiServicePop.js"),require("./JS/myLibrary.js"),require("./JS/pagination.js"),require("./JS/up-arrow"),require("./JS/teamDeveloper"),require("./JS/toolbar.js"),require("./JS/modalSign.js");
 },{"./sass/main.scss":"clu1","./JS/header.js":"Ue5A","./JS/modal.js":"JjjK","./JS/apiModal":"PZWJ","./JS/apiServiceSearch.js":"mdHM","./JS/apiServicePop.js":"B6nc","./JS/myLibrary.js":"quyV","./JS/pagination.js":"EKHO","./JS/up-arrow":"snSB","./JS/teamDeveloper":"Ml9S","./JS/toolbar.js":"muDZ","./JS/modalSign.js":"TdKS"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-02/src.4668f168.js.map
+//# sourceMappingURL=/project-02/src.0ccd3a9c.js.map
