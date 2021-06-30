@@ -21,7 +21,8 @@ export default function getRefs() {
     btnRegister: document.querySelector('[date-button-register]'),
     formAuthorization: document.querySelector('[data-form-authorization]'),
     formRegister: document.querySelector('[data-form-register]'),
-    btnCreateAccount:document.querySelector('[date-button-create]')
+    btnCreateAccount: document.querySelector('[date-button-create]'),
+    inputLogin: document.querySelector('[data-input-login]')
    
   };
 }
